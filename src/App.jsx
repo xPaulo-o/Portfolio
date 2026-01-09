@@ -6,6 +6,8 @@ import ProjectGrid from './Components/ProjectGrid';
 import { useLanguage } from './Components/LanguageContext';
 import { Reveal } from './Components/Reveal';
 import { HiBadgeCheck } from 'react-icons/hi'
+import { SiReact, SiTailwindcss, SiJavascript, SiPython, SiLinux, SiPostgresql, SiDocker, SiKalilinux } from 'react-icons/si';
+import { HiLightningBolt } from 'react-icons/hi';
 import './App.css'
 
 function App() {
@@ -46,7 +48,7 @@ function App() {
                     title: "Workshop Android Pentester",
                     org: "Solyd Offensive Security",
                     year: "2026",
-                    link: "public/certificados/certificado 2.pdf", 
+                    link: "public/certificados/certificado 2.pdf",
                     info: "4 horas • Ver PDF ↗"
                   },
                   {
@@ -96,10 +98,39 @@ function App() {
 
           <section id="experiencia py-12 py-20">
             <Reveal><Experience /></Reveal>
+
+            <section id="habilidades" className="py-12 border-t border-white/5">
+              <h3 className="text-lg font-semibold text-white mb-8 flex items-center gap-2">
+                <HiLightningBolt className="text-yellow-400" />
+                {lang === 'pt' ? 'Habilidades Técnicas' : 'Technical Skills'}
+              </h3>
+
+              <div className="flex flex-wrap gap-3">
+                {/* Skill Badge */}
+                {[
+                  { name: "React", icon: <SiReact className="group-hover:text-[#61DAFB]" />, color: "hover:border-[#61DAFB]/50" },
+                  { name: "Tailwind", icon: <SiTailwindcss className="group-hover:text-[#38BDF8]" />, color: "hover:border-[#38BDF8]/50" },
+                  { name: "JavaScript", icon: <SiJavascript className="group-hover:text-[#F7DF1E]" />, color: "hover:border-[#F7DF1E]/50" },
+                  { name: "Python", icon: <SiPython className="group-hover:text-[#3776AB]" />, color: "hover:border-[#3776AB]/50" },
+                  { name: "Kali Linux", icon: <SiKalilinux />, color: "hover:text-[#557C94] hover:border-[#557C94]/40" },
+                ].map((skill, index) => (
+                  <div
+                    key={index}
+                    className={`flex items-center gap-2 px-4 py-2 rounded-xl border border-white/5 bg-white/5 text-zinc-400 text-sm font-medium transition-all duration-300 group hover:bg-white/10 hover:text-white ${skill.color}`}
+                  >
+                    <span className="text-lg transition-colors duration-300">
+                      {skill.icon}
+                    </span>
+                    {skill.name}
+                  </div>
+                ))}
+              </div>
+            </section>
+
             <Reveal><Education /></Reveal>
           </section>
 
-          <section id="habilidades py-12 py-20">
+          <section id="projetos py-12 py-20">
             <Reveal><ProjectGrid /></Reveal>
           </section>
         </div>
