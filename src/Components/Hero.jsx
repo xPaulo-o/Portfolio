@@ -35,7 +35,7 @@ export default function Hero() {
           href="https://github.com/xPaulo-o"
           target="_blank"
           rel="noopener noreferrer"
-          className="w-12 h-12 flex items-center justify-center rounded-2xl border border-white/5 bg-white/5 text-zinc-400 text-xl transition-all duration-300 hover:bg-blue-500/10 hover:text-white hover:border-blue-500/50 hover:shadow-[0_0_20px_rgba(0,124,240,0.4)]"
+          className="w-12 h-12 flex items-center justify-center rounded-2xl border border-white/5 bg-white/5 text-zinc-400 text-xl transition-all duration-300 hover:bg-[#4af626]/10 hover:text-[#4af626] hover:border-[#4af626]/50 hover:shadow-[0_0_20px_rgba(74,246,38,0.2)]"
         >
           <FaGithub />
         </a>
@@ -44,7 +44,7 @@ export default function Hero() {
           href="https://www.linkedin.com/in/paulo-augusto-b579513a1"
           target="_blank"
           rel="noopener noreferrer"
-          className="w-12 h-12 flex items-center justify-center rounded-2xl border border-white/5 bg-white/5 text-zinc-400 text-xl transition-all duration-300 hover:bg-blue-500/10 hover:text-white hover:border-blue-500/50 hover:shadow-[0_0_20px_rgba(0,124,240,0.4)]"
+          className="w-12 h-12 flex items-center justify-center rounded-2xl border border-white/5 bg-white/5 text-zinc-400 text-xl transition-all duration-300 hover:bg-[#4af626]/10 hover:text-[#4af626] hover:border-[#4af626]/50 hover:shadow-[0_0_20px_rgba(74,246,38,0.2)]"
         >
           <FaLinkedinIn />
         </a>
@@ -52,7 +52,7 @@ export default function Hero() {
           href="https://www.instagram.com/xpaulo_o2/"
           target="_blank"
           rel="noopener noreferrer"
-          className="w-12 h-12 flex items-center justify-center rounded-2xl border border-white/5 bg-white/5 text-zinc-400 text-xl transition-all duration-300 hover:bg-blue-500/10 hover:text-white hover:border-blue-500/50 hover:shadow-[0_0_20px_rgba(0,124,240,0.4)]"
+          className="w-12 h-12 flex items-center justify-center rounded-2xl border border-white/5 bg-white/5 text-zinc-400 text-xl transition-all duration-300 hover:bg-[#4af626]/10 hover:text-[#4af626] hover:border-[#4af626]/50 hover:shadow-[0_0_20px_rgba(74,246,38,0.2)]"
         >
           <FaInstagram />
         </a>

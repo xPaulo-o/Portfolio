@@ -6,7 +6,7 @@ export function Experience() {
   const experiences = [
     {
       company: "Infortel Soluções em Informática",
-      role: t.infortel_role, // Puxa do contexto
+      role: t.infortel_role,
       description: t.exp_desc_infortel,
     },
     {
@@ -18,7 +18,6 @@ export function Experience() {
 
   return (
     <section className="py-8">
-      <h2 className="text-xl font-bold mb-6">{t.exp}</h2>
       <div className="space-y-8">
         {experiences.map((exp, index) => (
           <div key={index} className="border-l border-zinc-800 pl-4">

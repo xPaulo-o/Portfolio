@@ -12,7 +12,7 @@ export default function Navbar() {
   useEffect(() => {
     const observerOptions = {
       root: null,
-      rootMargin: '-40% 0px -50% 0px', 
+      rootMargin: '-40% 0px -50% 0px',
       threshold: 0,
     };
 
@@ -50,9 +50,8 @@ export default function Navbar() {
   return (
     <nav className="fixed top-0 left-0 w-full h-16 border-b border-white/5 bg-black/40 backdrop-blur-xl z-50 flex items-center justify-between px-6 md:px-12">
       <div className="font-bold text-white tracking-tight">
-        PAULO AUGUSTO<span className="text-blue-500">_</span>
+        PAULO AUGUSTO<span className="text-[#4af626]">_</span>
       </div>
-
       <div className="hidden md:flex gap-8 text-sm font-medium">
         {links.map((link) => (
           <a
