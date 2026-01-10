@@ -1,5 +1,5 @@
 import { TerminalSection } from "./TerminalSection";
-import { useLanguage } from "../Components/LanguageContext";
+import { useLanguage } from "./LanguageContext";
 import { HiBriefcase } from "react-icons/hi";
 import { FaExternalLinkAlt } from "react-icons/fa";
 

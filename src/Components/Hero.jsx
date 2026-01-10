@@ -1,6 +1,5 @@
-import TextType from "./TextType";
-import Typewriter from "./Typewriter";
-import { useLanguage } from "../Components/LanguageContext";
+import { TypingText } from "./TypingText";
+import { useLanguage } from "./LanguageContext";
 import fotoPerfil from "../assets/perfil.jpg";
 
 import {
@@ -39,24 +38,25 @@ export default function Hero() {
       </p>
 
       {/* Nome */}
-      <TextType
+      <TypingText
         text="Paulo Augusto de Almeida Céspedes"
         as="h1"
         className="text-3xl md:text-4xl font-bold text-white mb-3"
-        typingSpeed={70}
-        cursorCharacter="_"
-        loop={false}
+        speed={70}
+        cursor="_"
       />
 
       {/* Especialidades */}
       <div className="text-zinc-400 text-sm mb-6 flex flex-wrap items-center gap-2">
         <span>{t.specialized_in}</span>
         {t.specialties && (
-          <Typewriter
+          <TypingText
             key={t.specialties[0]}
             words={t.specialties}
             speed={80}
             delay={2500}
+            loop={true}
+            cursor="|"
           />
         )}
       </div>

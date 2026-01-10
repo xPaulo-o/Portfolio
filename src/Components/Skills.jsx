@@ -13,7 +13,7 @@ import { FaJava } from "react-icons/fa";
 
 
 export function Skills() {
-    const { lang } = useLanguage();
+    const { t } = useLanguage();
 
     const skills = [
         {
@@ -54,21 +54,13 @@ export function Skills() {
         },
     ];
 
-
-    const title =
-        lang === "pt"
-            ? "Habilidades Técnicas"
-            : lang === "es"
-                ? "Habilidades Técnicas"
-                : "Technical Skills";
-
     return (
         <TerminalSection command="ls skills/">
             {/* título */}
             <div className="flex items-center gap-2 mb-4">
                 <HiLightningBolt className="text-yellow-400" />
                 <h3 className="text-sm font-bold text-zinc-200">
-                    {title}
+                    {t.technical_skills}
                 </h3>
             </div>
 
@@ -103,7 +95,6 @@ export function Skills() {
                 ))}
             </div>
 
-            {/* feedback boot */}
             <p className="text-[10px] text-zinc-500 mt-4 italic">
                 [ OK ] documentation links ready
             </p>

@@ -33,7 +33,7 @@ const TerminalWindow = ({ title, label, value, link, isVisible }) => {
             className="block group"
           >
             <div className="text-[11px] sm:text-sm md:text-lg font-bold text-[#4af626] font-mono">
-              
+
               <TerminalSequence
                 start={isVisible}
                 speed={35}
@@ -77,9 +77,13 @@ export default function FooterTerminal() {
   return (
     <footer
       ref={footerRef}
-      className="w-full max-w-7xl mx-auto px-6 py-20 border-t border-white/5"
+      className="w-full max-w-5xl mx-auto px-6 py-20 border-t border-white/5"
     >
+
+      <h2 className="text-xl font-bold mb-10 text-center">{t.contact}</h2>
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+
         <TerminalWindow
           title="whatsapp_session.sh"
           label={t.terminal_contact || "Contact via WhatsApp"}

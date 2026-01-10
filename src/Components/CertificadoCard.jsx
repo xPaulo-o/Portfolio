@@ -1,26 +1,7 @@
-import { useState, useEffect } from "react";
 import { HiBadgeCheck } from "react-icons/hi";
 import { FaFilePdf, FaExternalLinkAlt } from "react-icons/fa";
 import { useOnScreen } from "./useOnScreen";
-
-function TypingText({ text, speed = 25, start }) {
-  const [displayed, setDisplayed] = useState("");
-
-  useEffect(() => {
-    if (!start) return;
-
-    let i = 0;
-    const interval = setInterval(() => {
-      setDisplayed(text.slice(0, i + 1));
-      i++;
-      if (i === text.length) clearInterval(interval);
-    }, speed);
-
-    return () => clearInterval(interval);
-  }, [text, speed, start]);
-
-  return <span>{displayed}</span>;
-}
+import { TypingText } from "./TypingText";
 
 export function CertificadoCard({ cert, index }) {
   const [ref, isVisible] = useOnScreen("-80px");

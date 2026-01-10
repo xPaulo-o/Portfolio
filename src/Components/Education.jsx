@@ -1,30 +1,19 @@
-import { useLanguage } from "../Components/LanguageContext";
-import { TypingText } from "../Components/TypingText";
-import { Reveal } from "../Components/Reveal";
-import { useOnScreen } from "../Components/useOnScreen";
+import { useLanguage } from "./LanguageContext";
+import { Reveal } from "./Reveal";
 import { HiAcademicCap } from "react-icons/hi";
+import { TerminalSection } from "./TerminalSection";
 
 export function Education() {
   const { t } = useLanguage();
-  const [ref, isVisible] = useOnScreen("-120px");
 
   return (
-    <section ref={ref} className="py-12 font-mono">
+    <section className="py-12 font-mono">
       {/* título */}
       <h2 className="text-xl font-bold mb-6 text-white">
         {t.education}
       </h2>
 
-      {/* comando fake */}
-      <div className="flex items-center gap-2 text-xs text-zinc-400 mb-6">
-        <span className="text-[#4af626]">$</span>
-        <TypingText
-          text={t.education_cmd || "cat education.txt"}
-          start={isVisible}
-        />
-      </div>
-
-      <div className="space-y-5">
+      <TerminalSection command={t.education_cmd || "cat education.txt"}>
         {/* graduação 1 */}
         <Reveal>
           <div className="
@@ -80,7 +69,7 @@ export function Education() {
             </p>
           </div>
         </Reveal>
-      </div>
+      </TerminalSection>
     </section>
   );
 }

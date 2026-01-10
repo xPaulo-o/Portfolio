@@ -1,23 +1,21 @@
 import React, { useState, useEffect } from "react";
-import { useLanguage } from "../Components/LanguageContext";
+import { useLanguage } from "./LanguageContext";
 import { motion, AnimatePresence } from "framer-motion";
 import { HiChevronDown } from "react-icons/hi";
 
 export default function Navbar() {
-  const { lang, setLang } = useLanguage();
+  const { lang, setLang, t } = useLanguage();
 
   const [activeSection, setActiveSection] = useState("inicio");
   const [isLangOpen, setIsLangOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
-  /* shrink on scroll */
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 40);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  /* section observer */
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -37,13 +35,6 @@ export default function Navbar() {
     return () => observer.disconnect();
   }, []);
 
-  const navTexts = {
-    pt: { home: "Início", about: "Sobre", exp: "Experiência", skills: "Habilidades", projects: "Projetos", contact: "Contato" },
-    es: { home: "Inicio", about: "Sobre mí", exp: "Experiencia", skills: "Habilidades", projects: "Proyectos", contact: "Contacto" },
-    en: { home: "Home", about: "About", exp: "Experience", skills: "Skills", projects: "Projects", contact: "Contact" },
-  };
-
-  const t = navTexts[lang];
 
   const links = [
     { id: "inicio", label: t.home },
@@ -84,11 +75,10 @@ export default function Navbar() {
           <a
             key={link.id}
             href={`#${link.id}`}
-            className={`relative transition-colors ${
-              activeSection === link.id
+            className={`relative transition-colors ${activeSection === link.id
                 ? "text-white"
                 : "text-zinc-400 hover:text-white"
-            }`}
+              }`}
           >
             {link.label}
             {activeSection === link.id && (
@@ -141,11 +131,10 @@ export default function Navbar() {
                       setLang(l.code);
                       setIsLangOpen(false);
                     }}
-                    className={`w-full flex items-center gap-3 px-4 py-2 text-sm transition-colors ${
-                      lang === l.code
+                    className={`w-full flex items-center gap-3 px-4 py-2 text-sm transition-colors ${lang === l.code
                         ? "text-[#4af626] bg-[#4af626]/10"
                         : "text-zinc-400 hover:text-white hover:bg-white/5"
-                    }`}
+                      }`}
                   >
                     <img src={l.flag} className="w-5 h-3.5 rounded-sm" />
                     {l.label}

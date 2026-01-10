@@ -1,5 +1,4 @@
 import { createContext, useState, useContext } from 'react';
-import { resume } from 'react-dom/server';
 
 const LanguageContext = createContext();
 
@@ -10,8 +9,10 @@ export const translations = {
         presentation: "Olá, eu sou:",
         follow: "Siga-me nas redes sociais:",
         resume: "Profissional de Tecnologia da Informação, com foco em desenvolvimento, suporte técnico, redes, manutenção de hardware e segurança da informação, sempre buscando soluções eficientes e aprendizado contínuo.",
-        about: "About",
         about: "Sobre",
+        home: "Início",
+        skills: "Habilidades",
+        technical_skills: "Habilidades Técnicas",
         projects: "Projetos",
         exp: "Experiência",
         objective: "Sou um profissional da área de Tecnologia da Informação, com experiência em suporte técnico, redes, monitoramento de sistemas e manutenção de celulares. Atuo diretamente na identificação e solução de problemas técnicos, sempre com foco em eficiência, organização e qualidade no atendimento.Tenho facilidade em lidar com o público, oferecendo atendimento claro, objetivo e humanizado, buscando sempre a melhor solução para cada necessidade. Possuo conhecimentos em hardware, software, sistemas operacionais e dispositivos móveis, além de interesse constante em aprender novas tecnologias e evoluir profissionalmente.Sou uma pessoa comprometida, proativa e focada em resultados, que acredita que a tecnologia deve simplificar processos e melhorar a experiência das pessoas. Este portfólio representa minha trajetória, minhas habilidades e minha dedicação à área de TI.",
@@ -43,6 +44,9 @@ export const translations = {
         follow: "Sígueme en las redes sociales:",
         resume: "Profesional de Tecnología de la Información, enfocado en desarrollo, soporte técnico, redes, mantenimiento de hardware y seguridad de la información, siempre buscando soluciones eficientes y aprendizaje continuo.",
         about: "Sobre mí",
+        home: "Inicio",
+        skills: "Habilidades",
+        technical_skills: "Habilidades Técnicas",
         projects: "Proyectos",
         exp: "Experiencia",
         objective: "Soy un profesional del área de Tecnología de la Información, con experiencia en soporte técnico, redes, monitoreo de sistemas y reparación de teléfonos móviles. Trabajo en la identificación y resolución de problemas técnicos, siempre enfocado en la eficiencia, la organización y la calidad del servicio.Tengo facilidad para el trato con clientes, ofreciendo una atención clara, objetiva y profesional, buscando siempre la mejor solución para cada situación. Cuento con conocimientos en hardware, software, sistemas operativos y dispositivos móviles, además de un interés constante en aprender nuevas tecnologías y crecer profesionalmente.Soy una persona comprometida, proactiva y orientada a resultados, que cree que la tecnología debe simplificar procesos y mejorar la experiencia de las personas. Este portafolio refleja mi trayectoria profesional, mis habilidades y mi pasión por el área de TI.",
@@ -74,6 +78,9 @@ export const translations = {
         follow: "Follow me on social media:",
         resume: "Information Technology professional, focused on development, technical support, networks, hardware maintenance, and information security, always seeking efficient solutions and continuous learning.",
         about: "About",
+        home: "Home",
+        skills: "Skills",
+        technical_skills: "Technical Skills",
         projects: "Projects",
         exp: "Experience",
         objective: "I am an Information Technology professional with experience in technical support, networks, system monitoring, and mobile phone repair. I work directly with troubleshooting and problem-solving, always focusing on efficiency, organization, and high-quality service.I have strong communication skills and provide clear, objective, and customer-focused support, always aiming to deliver the best solution for each situation. I have knowledge of hardware, software, operating systems, and mobile devices, along with a constant interest in learning new technologies and improving my skills.I am a committed, proactive, and results-driven professional who believes technology should simplify processes and enhance people’s experiences. This portfolio represents my journey, skills, and dedication to the IT field.",
