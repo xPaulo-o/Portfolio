@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
-import TypingText from "./TypingText";
+import { TypingText } from "./TypingText";
 
 function randomDelay(min = 300, max = 900) {
   return Math.floor(Math.random() * (max - min + 1)) + min;

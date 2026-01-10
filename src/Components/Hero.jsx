@@ -1,34 +1,55 @@
-import TextType from './TextType';
-import { useLanguage } from '../Components/LanguageContext';
-import fotoPerfil from '../assets/perfil.jpg';
-import { FaGithub, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
-import Typewriter from './Typewriter';
+import TextType from "./TextType";
+import Typewriter from "./Typewriter";
+import { useLanguage } from "../Components/LanguageContext";
+import fotoPerfil from "../assets/perfil.jpg";
+
+import {
+  FaGithub,
+  FaInstagram,
+  FaLinkedinIn,
+} from "react-icons/fa";
 
 export default function Hero() {
   const { t } = useLanguage();
 
   return (
+    <section className="max-w-2xl mx-auto px-6 pt-24 pb-12 relative z-10">
 
-    <section className="max-w-2xl mx-auto px-6 pt-24 pb-10 text-left relative z-10">
-
+      {/* Avatar */}
       <div className="mb-6">
-        <div className="w-20 h-20 rounded-full bg-zinc-800 border border-zinc-700 overflow-hidden">
-          <img src={fotoPerfil} alt="Paulo" className="w-full h-full object-cover" />
+        <div className="
+          w-20 h-20 rounded-full
+          bg-zinc-800
+          border border-zinc-700
+          overflow-hidden
+          transition-transform duration-300
+          hover:scale-105
+        ">
+          <img
+            src={fotoPerfil}
+            alt="Paulo Augusto"
+            className="w-full h-full object-cover"
+          />
         </div>
       </div>
 
-      <h1>{t.presentation}</h1>
+      {/* Apresentação */}
+      <p className="text-sm text-zinc-400 mb-1">
+        {t.presentation}
+      </p>
 
+      {/* Nome */}
       <TextType
         text="Paulo Augusto de Almeida Céspedes"
         as="h1"
-        className="text-3xl font-bold text-white mb-2"
+        className="text-3xl md:text-4xl font-bold text-white mb-3"
         typingSpeed={70}
         cursorCharacter="_"
         loop={false}
       />
 
-      <div className="text-zinc-400 text-base mb-6 h-8 flex items-center gap-2">
+      {/* Especialidades */}
+      <div className="text-zinc-400 text-sm mb-6 flex flex-wrap items-center gap-2">
         <span>{t.specialized_in}</span>
         {t.specialties && (
           <Typewriter
@@ -40,36 +61,88 @@ export default function Hero() {
         )}
       </div>
 
-      <h1>{t.resume}</h1>
+      {/* Resumo */}
+      <p className="text-zinc-300 text-sm leading-relaxed max-w-xl mb-8">
+        {t.resume}
+      </p>
 
-      <h1>{t.follow}</h1>
+      {/* Follow */}
+      <p className="text-xs text-zinc-500 mb-3">
+        {t.follow}
+      </p>
 
-      <div className="flex gap-4 mt-8">
+      {/* Social Icons */}
+      <div className="flex gap-4">
+
+        {/* GitHub */}
         <a
           href="https://github.com/xPaulo-o"
           target="_blank"
           rel="noopener noreferrer"
-          className="w-12 h-12 flex items-center justify-center rounded-2xl border border-white/5 bg-white/5 text-zinc-400 text-xl transition-all duration-300 hover:bg-[#4af626]/10 hover:text-[#4af626] hover:border-[#4af626]/50 hover:shadow-[0_0_20px_rgba(74,246,38,0.2)]"
+          title="GitHub"
+          className="
+            w-11 h-11
+            flex items-center justify-center
+            rounded-xl
+            border border-white/10
+            bg-black/40
+            text-zinc-400
+            text-xl
+            transition-all duration-300
+            hover:text-white
+            hover:border-white/30
+            hover:shadow-[0_0_25px_-10px_rgba(255,255,255,0.3)]
+          "
         >
           <FaGithub />
         </a>
 
+        {/* LinkedIn */}
         <a
           href="https://www.linkedin.com/in/paulo-augusto-b579513a1"
           target="_blank"
           rel="noopener noreferrer"
-          className="w-12 h-12 flex items-center justify-center rounded-2xl border border-white/5 bg-white/5 text-zinc-400 text-xl transition-all duration-300 hover:bg-[#4af626]/10 hover:text-[#4af626] hover:border-[#4af626]/50 hover:shadow-[0_0_20px_rgba(74,246,38,0.2)]"
+          title="LinkedIn"
+          className="
+            w-11 h-11
+            flex items-center justify-center
+            rounded-xl
+            border border-white/10
+            bg-black/40
+            text-zinc-400
+            text-xl
+            transition-all duration-300
+            hover:text-[#0A66C2]
+            hover:border-[#0A66C2]/40
+            hover:shadow-[0_0_25px_-10px_rgba(10,102,194,0.5)]
+          "
         >
           <FaLinkedinIn />
         </a>
+
+        {/* Instagram */}
         <a
           href="https://www.instagram.com/xpaulo_o2/"
           target="_blank"
           rel="noopener noreferrer"
-          className="w-12 h-12 flex items-center justify-center rounded-2xl border border-white/5 bg-white/5 text-zinc-400 text-xl transition-all duration-300 hover:bg-[#4af626]/10 hover:text-[#4af626] hover:border-[#4af626]/50 hover:shadow-[0_0_20px_rgba(74,246,38,0.2)]"
+          title="Instagram"
+          className="
+            w-11 h-11
+            flex items-center justify-center
+            rounded-xl
+            border border-white/10
+            bg-black/40
+            text-zinc-400
+            text-xl
+            transition-all duration-300
+            hover:text-pink-400
+            hover:border-pink-400/40
+            hover:shadow-[0_0_25px_-10px_rgba(236,72,153,0.5)]
+          "
         >
           <FaInstagram />
         </a>
+
       </div>
     </section>
   );

@@ -1,52 +1,23 @@
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
 
-export default function TypingText({
-  text = "",
-  speed = 40,
-  cursor = "block",
-  className = "",
-  start = true,
-  onComplete,
-}) {
-  const [displayText, setDisplayText] = useState("");
-
-  const cursorMap = {
-    block: "█",
-    line: "|",
-    underscore: "_",
-  };
+export function TypingText({ text, speed = 25, start }) {
+  const [displayed, setDisplayed] = useState("");
 
   useEffect(() => {
-    if (!start || !text) return;
+    if (!start) return;
 
     let i = 0;
-    const stepIncrement = text.length > 200 ? 5 : 1;
+    const interval = setInterval(() => {
+      setDisplayed(text.slice(0, i + 1));
+      i++;
 
-    const typing = setInterval(() => {
-      setDisplayText(text.slice(0, i + stepIncrement));
-      i += stepIncrement;
-
-      if (i >= text.length) {
-        setDisplayText(text);
-        clearInterval(typing);
-        if (onComplete) onComplete();
+      if (i === text.length) {
+        clearInterval(interval);
       }
     }, speed);
 
-    return () => clearInterval(typing);
-  }, [text, speed, start, onComplete]);
+    return () => clearInterval(interval);
+  }, [text, speed, start]);
 
-  return (
-    <span className={`inline-flex items-center ${className}`}>
-      <span>{displayText}</span>
-      <motion.span
-        animate={{ opacity: [1, 0] }}
-        transition={{ duration: 0.8, repeat: Infinity }}
-        className="ml-1"
-      >
-        {cursorMap[cursor]}
-      </motion.span>
-    </span>
-  );
+  return <span>{displayed}</span>;
 }

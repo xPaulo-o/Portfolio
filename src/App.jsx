@@ -13,6 +13,8 @@ import { HiLightningBolt } from "react-icons/hi";
 import { Certificados } from "./Components/Certificados";
 import FooterTerminal from "./Components/FooterTerminal";
 import AnimatedBackground from "./Components/AnimatedBackground";
+import { TerminalSection } from "./Components/TerminalSection";
+import { Skills } from "./Components/Skills";
 import "./App.css";
 
 function App() {
@@ -31,6 +33,7 @@ function App() {
           <AnimatedBackground active={!loading && !isMobile} />
 
           <motion.main
+
             key="portfolio-content"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -52,45 +55,31 @@ function App() {
                   <Reveal>
                     <section className="py-8">
                       <h2 className="text-xl font-bold mb-4">{t.about}</h2>
-                      <p className="text-sm text-zinc-400">{t.objective}</p>
+                      <TerminalSection command="whoami">
+                        <p className="text-zinc-300 text-sm leading-relaxed">
+                          {t.objective}
+                        </p>
+                      </TerminalSection>
                     </section>
                   </Reveal>
                 </section>
 
-                <section id="experiencia">
+                <section id="experiencia" className="py-12">
                   <h2 className="text-xl font-bold mb-6">{t.exp}</h2>
                   <Reveal><Certificados /></Reveal>
+                  <br />
+                  <br />
                   <Reveal><Experience /></Reveal>
-
-                  <section id="habilidades" className="py-12 border-t border-white/5">
-                    <h3 className="text-lg font-semibold text-white mb-8 flex items-center gap-2">
-                      <HiLightningBolt className="text-yellow-400" />
-                      {lang === "pt" ? "Habilidades Técnicas" : "Technical Skills"}
-                    </h3>
-
-                    <div className="flex flex-wrap gap-3">
-                      {[
-                        { name: "React", icon: <SiReact />, color: "hover:border-[#61DAFB]/50" },
-                        { name: "Tailwind", icon: <SiTailwindcss />, color: "hover:border-[#38BDF8]/50" },
-                        { name: "JavaScript", icon: <SiJavascript />, color: "hover:border-[#F7DF1E]/50" },
-                        { name: "Python", icon: <SiPython />, color: "hover:border-[#3776AB]/50" },
-                        { name: "Kali Linux", icon: <SiKalilinux />, color: "hover:border-[#557C94]/40" },
-                      ].map((skill, index) => (
-                        <div
-                          key={index}
-                          className={`flex items-center gap-2 px-4 py-2 rounded-xl border border-white/5 bg-white/5 text-zinc-400 text-sm font-medium transition-all duration-300 hover:bg-white/10 hover:text-white ${skill.color}`}
-                        >
-                          <span className="text-lg">{skill.icon}</span>
-                          {skill.name}
-                        </div>
-                      ))}
-                    </div>
-                  </section>
 
                   <Reveal><Education /></Reveal>
                 </section>
 
-                <section id="projetos" className="py-12">
+                <section id="habilidades">
+                  <h2 className="text-xl font-bold mb-10">{t.skills}</h2>
+                  <Reveal><Skills /></Reveal>
+                </section>
+
+                <section id="projetos" className="py-8">
                   <Reveal><ProjectGrid /></Reveal>
                 </section>
               </div>

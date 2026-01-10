@@ -5,7 +5,7 @@ const LanguageContext = createContext();
 
 export const translations = {
 
-    
+
     pt: {
         presentation: "Olá, eu sou:",
         follow: "Siga-me nas redes sociais:",
@@ -18,8 +18,10 @@ export const translations = {
         education: "Educação",
         infortel_role: "Operador de Rede de Teleprocessamento",
         dipcell_role: "Assistente Técnico e Vendedor",
+        gelnex_role: "Assistente Administrativo",
         exp_desc_infortel: "Atuação com redes, monitoramento, suporte técnico e manutenção de celulares.",
         exp_desc_dipcell: "Atendimento ao cliente e suporte técnico em informática e celulares.",
+        exp_desc_gelnex: "Rotinas administrativas, organização de documentos e apoio operacional.",
         graduation: "Graduação em Tecnologia da Informação",
         university: "Faculdades e Colégio Aphonsiano, Trindade - GO",
         graduation2: "Titulo Tecnico em Reparo de Celulares",
@@ -30,7 +32,11 @@ export const translations = {
         terminal_email: "Enviar um Email",
         terminal_status: "CONEXÃO ESTABELECIDA",
         click_to_call: "CLIQUE PARA INICIAR CONVERSA",
-        contact: "Contato"
+        contact: "Contato",
+        projects_ls: "ls projects/",
+        projects_open: "abrir projeto",
+        project_view: "Ver projeto",
+        education_cmd: "cat education.txt"
     },
     es: {
         presentation: "Hola, soy:",
@@ -43,33 +49,41 @@ export const translations = {
         education: "Educación",
         infortel_role: "Operador de Red de Teleprocesamiento",
         dipcell_role: "Asistente Técnico y Vendedor",
+        gelnex_role: "Asistente Administrativo",
         exp_desc_infortel: "Actuación con redes, monitoreo, soporte técnico y reparo de celulares.",
         exp_desc_dipcell: "Atención al cliente y soporte técnico en informática y celulares.",
+        exp_desc_gelnex: "Rutinas administrativas, organización de documentos y apoyo operativo.",
         graduation: "Titulo en Tecnología de la Información",
         university: "Faculdades e Colégio Aphonsiano, Trindade - GO",
         graduation2: "Titulo Técnico en Reparo de Celulares",
         university2: "Vision Crursos, Goiânia - GO",
-        specialties:["Desarrollo", "mantenimiento en hardware", "Seguridad de la Información"],
+        specialties: ["Desarrollo", "mantenimiento en hardware", "Seguridad de la Información"],
         specialized_in: "tengo Conocimientos en:",
         terminal_contact: "Iniciar conversación vía WhatsApp...",
         terminal_email: "Enviar un Correo Electrónico",
         terminal_status: "CONEXIÓN ESTABLECIDA",
         click_to_call: "HAGA CLIC PARA INICIAR LA CONVERSACIÓN",
-        contact: "Contacto"
+        contact: "Contacto",
+        projects_ls: "ls projects/",
+        projects_open: "abrir proyecto",
+        project_view: "Ver proyecto",
+        education_cmd: "cat education.txt"
     },
     en: {
         presentation: "Hello, I am:",
         follow: "Follow me on social media:",
         resume: "Information Technology professional, focused on development, technical support, networks, hardware maintenance, and information security, always seeking efficient solutions and continuous learning.",
-        about: "About", 
+        about: "About",
         projects: "Projects",
         exp: "Experience",
         objective: "I am an Information Technology professional with experience in technical support, networks, system monitoring, and mobile phone repair. I work directly with troubleshooting and problem-solving, always focusing on efficiency, organization, and high-quality service.I have strong communication skills and provide clear, objective, and customer-focused support, always aiming to deliver the best solution for each situation. I have knowledge of hardware, software, operating systems, and mobile devices, along with a constant interest in learning new technologies and improving my skills.I am a committed, proactive, and results-driven professional who believes technology should simplify processes and enhance people’s experiences. This portfolio represents my journey, skills, and dedication to the IT field.",
         education: "education",
         infortel_role: "Teleprocessing Network Operator",
         dipcell_role: "Technical Assistant and Salesperson",
+        gelnex_role: "Administrative Assistant",
         exp_desc_infortel: "Work with networks, monitoring, technical support, and mobile phone maintenance.",
         exp_desc_dipcell: "Customer service and technical support in IT and mobile devices.",
+        exp_desc_gelnex: "Administrative routines, document organization, and operational support.",
         graduation: "Bachelor’s Degree in Information Technology",
         university: "Faculdades e Colégio Aphonsiano, Trindade - GO",
         graduation2: "Technical Degree in Mobile Phone Repair",
@@ -80,7 +94,11 @@ export const translations = {
         terminal_email: "Send an Email",
         terminal_status: "CONNECTION ESTABLISHED",
         click_to_call: "CLICK TO START CONVERSATION",
-        contact: "Contact"
+        contact: "Contact",
+        projects_ls: "ls projects/",
+        projects_open: "open project",
+        project_view: "View project",
+        education_cmd: "cat education.txt"
     }
 };
 
