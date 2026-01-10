@@ -1,9 +1,16 @@
 import { createContext, useState, useContext } from 'react';
+import { resume } from 'react-dom/server';
 
 const LanguageContext = createContext();
 
 export const translations = {
+
+    
     pt: {
+        presentation: "Olá, eu sou:",
+        follow: "Siga-me nas redes sociais:",
+        resume: "Profissional de Tecnologia da Informação, com foco em desenvolvimento, suporte técnico, redes, manutenção de hardware e segurança da informação, sempre buscando soluções eficientes e aprendizado contínuo.",
+        about: "About",
         about: "Sobre",
         projects: "Projetos",
         exp: "Experiência",
@@ -16,9 +23,19 @@ export const translations = {
         graduation: "Graduação em Tecnologia da Informação",
         university: "Faculdades e Colégio Aphonsiano, Trindade - GO",
         graduation2: "Titulo Tecnico em Reparo de Celulares",
-        university2: "Vision Crursos, Goiânia - GO"
+        university2: "Vision Crursos, Goiânia - GO",
+        specialties: ["Desenvolvimento", "Manutenção em hardware", "Segurança da Informação"],
+        specialized_in: "Tenho Conhecimento em:",
+        terminal_contact: "Iniciar conversa via WhatsApp...",
+        terminal_email: "Enviar um Email",
+        terminal_status: "CONEXÃO ESTABELECIDA",
+        click_to_call: "CLIQUE PARA INICIAR CONVERSA",
+        contact: "Contato"
     },
     es: {
+        presentation: "Hola, soy:",
+        follow: "Sígueme en las redes sociales:",
+        resume: "Profesional de Tecnología de la Información, enfocado en desarrollo, soporte técnico, redes, mantenimiento de hardware y seguridad de la información, siempre buscando soluciones eficientes y aprendizaje continuo.",
         about: "Sobre mí",
         projects: "Proyectos",
         exp: "Experiencia",
@@ -31,10 +48,20 @@ export const translations = {
         graduation: "Titulo en Tecnología de la Información",
         university: "Faculdades e Colégio Aphonsiano, Trindade - GO",
         graduation2: "Titulo Técnico en Reparo de Celulares",
-        university2: "Vision Crursos, Goiânia - GO"
+        university2: "Vision Crursos, Goiânia - GO",
+        specialties:["Desarrollo", "mantenimiento en hardware", "Seguridad de la Información"],
+        specialized_in: "tengo Conocimientos en:",
+        terminal_contact: "Iniciar conversación vía WhatsApp...",
+        terminal_email: "Enviar un Correo Electrónico",
+        terminal_status: "CONEXIÓN ESTABLECIDA",
+        click_to_call: "HAGA CLIC PARA INICIAR LA CONVERSACIÓN",
+        contact: "Contacto"
     },
     en: {
-        about: "About",
+        presentation: "Hello, I am:",
+        follow: "Follow me on social media:",
+        resume: "Information Technology professional, focused on development, technical support, networks, hardware maintenance, and information security, always seeking efficient solutions and continuous learning.",
+        about: "About", 
         projects: "Projects",
         exp: "Experience",
         objective: "I am an Information Technology professional with experience in technical support, networks, system monitoring, and mobile phone repair. I work directly with troubleshooting and problem-solving, always focusing on efficiency, organization, and high-quality service.I have strong communication skills and provide clear, objective, and customer-focused support, always aiming to deliver the best solution for each situation. I have knowledge of hardware, software, operating systems, and mobile devices, along with a constant interest in learning new technologies and improving my skills.I am a committed, proactive, and results-driven professional who believes technology should simplify processes and enhance people’s experiences. This portfolio represents my journey, skills, and dedication to the IT field.",
@@ -46,7 +73,14 @@ export const translations = {
         graduation: "Bachelor’s Degree in Information Technology",
         university: "Faculdades e Colégio Aphonsiano, Trindade - GO",
         graduation2: "Technical Degree in Mobile Phone Repair",
-        university2: "Vision Crursos, Goiânia - GO"
+        university2: "Vision Crursos, Goiânia - GO",
+        specialties: ["Development", "Hardware Maintenance", "Information Security"],
+        specialized_in: "I Have Skills in:",
+        terminal_contact: "Start conversation via WhatsApp...",
+        terminal_email: "Send an Email",
+        terminal_status: "CONNECTION ESTABLISHED",
+        click_to_call: "CLICK TO START CONVERSATION",
+        contact: "Contact"
     }
 };
 

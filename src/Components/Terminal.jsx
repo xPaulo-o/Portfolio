@@ -1,97 +1,210 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import './Terminal.css';
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import "./Terminal.css";
 
-const Terminal = ({ onComplete }) => {
-  const [displayText, setDisplayText] = useState([]);
+const isMobile = window.innerWidth < 768;
+
+const getTime = () =>
+  new Date().toLocaleTimeString("pt-BR", {
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+
+const asciiFrames = [
+`   ▄▄▄▄▄▄▄▄▄
+  ▄█▄ ▄ ▄ ▄█▄
+  ███████████
+  ▀█████████▀`,
+`   ▄▄▄▄▄▄▄▄▄
+  ▄█▄ ▄ ▄ ▄█▄
+  ███████████
+  ▄█████████▄`,
+];
+
+export default function Terminal({ onComplete }) {
+  const [lines, setLines] = useState([]);
   const [isExiting, setIsExiting] = useState(false);
+  const [asciiFrame, setAsciiFrame] = useState(0);
+  const [progress, setProgress] = useState(0);
 
   const sequence = [
-    { text: 'npm install portfolio', type: 'command' },
-    { text: '> Resolving dependencies...', type: 'output' },
-    { text: '+ Added 42 packages in 2.4s', type: 'output' },
-    { text: 'npm run build', type: 'command' }
+    { type: "boot", text: "Starting system services" },
+    { type: "boot", text: "Loading kernel modules" },
+    { type: "boot", text: "Initializing network manager" },
+    { type: "boot", text: "Mounting file systems" },
+
+    { type: "command", text: "npm install portfolio" },
+    { type: "output", text: "Resolving dependencies..." },
+    { type: "warning", text: "warning: deprecated package detected" },
+    { type: "success", text: "+ Added 42 packages in 2.4s" },
+
+    { type: "command", text: "npm run build" },
+    { type: "ascii" },
+    { type: "progress" },
+    { type: "success", text: "✔ Build completed successfully" },
   ];
 
   useEffect(() => {
-    let currentLine = 0;
-    let currentChar = 0;
-    let currentLinesContent = [];
+    const interval = setInterval(() => {
+      setAsciiFrame((p) => (p + 1) % asciiFrames.length);
+    }, 350);
+    return () => clearInterval(interval);
+  }, []);
 
-    function type() {
-      if (currentLine < sequence.length) {
-        const line = sequence[currentLine];
-        
-        if (line.type === 'output') {
-          currentLinesContent.push(line);
-          setDisplayText([...currentLinesContent]);
-          currentLine++;
-          setTimeout(type, 400);
-        } else {
-          if (currentChar === 0) {
-            currentLinesContent.push({ ...line, text: '' });
-          }
+  useEffect(() => {
+    if (lines.some((l) => l.type === "progress")) {
+      const interval = setInterval(() => {
+        setProgress((p) => (p < 100 ? p + Math.random() * 8 : 100));
+      }, 180);
+      return () => clearInterval(interval);
+    }
+  }, [lines]);
 
-          if (currentChar < line.text.length) {
-            currentLinesContent[currentLine].text += line.text[currentChar];
-            setDisplayText([...currentLinesContent]);
-            currentChar++;
-            setTimeout(type, 50); // Velocidade da digitação
-          } else {
-            currentLine++;
-            currentChar = 0;
-            setTimeout(type, 600); // Pausa após terminar a linha
-          }
-        }
-      } else {
+  useEffect(() => {
+    let lineIndex = 0;
+    let charIndex = 0;
+    let buffer = [];
+
+    function next() {
+      if (lineIndex >= sequence.length) {
+        document.documentElement.style.setProperty(
+          "--boot-accent",
+          "#4af626"
+        );
+
         setTimeout(() => {
           setIsExiting(true);
-          setTimeout(onComplete, 800); // Tempo para a animação de saída sumir
-        }, 1000);
+          setTimeout(onComplete, 900);
+        }, 1200);
+        return;
+      }
+
+      const line = sequence[lineIndex];
+
+      if (line.type === "boot") {
+        buffer.push({ ...line });
+        setLines([...buffer]);
+        lineIndex++;
+        setTimeout(next, 380);
+        return;
+      }
+
+      if (line.type !== "command") {
+        buffer.push(line);
+        setLines([...buffer]);
+        lineIndex++;
+        setTimeout(next, 420);
+        return;
+      }
+
+      if (charIndex === 0) {
+        buffer.push({ ...line, text: "" });
+      }
+
+      if (charIndex < line.text.length) {
+        buffer[lineIndex].text += line.text[charIndex];
+        setLines([...buffer]);
+        charIndex++;
+        setTimeout(next, 45);
+      } else {
+        lineIndex++;
+        charIndex = 0;
+        setTimeout(next, 650);
       }
     }
 
-    type();
+    next();
   }, [onComplete]);
 
   return (
     <AnimatePresence>
       {!isExiting && (
-        <motion.div 
+        <motion.div
           className="terminal-overlay"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          exit={{ opacity: 0, scale: 1.1, filter: "blur(10px)" }}
-          transition={{ duration: 0.5 }}
+          exit={{ opacity: 0, scale: 1.08, filter: "blur(8px)" }}
         >
-          <motion.div 
+          <motion.div
             className="terminal-window"
-            initial={{ y: 20, opacity: 0 }}
+            initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.2 }}
           >
             <div className="terminal-header">
               <div className="terminal-buttons">
-                <span className="close"></span>
-                <span className="minimize"></span>
-                <span className="maximize"></span>
+                <span className="close" />
+                <span className="minimize" />
+                <span className="maximize" />
               </div>
-              <div className="terminal-title">Paulo@portfolio ~</div>
+              <div className="terminal-title">
+                paulo@kali:~ (boot)
+              </div>
             </div>
+
             <div className="terminal-body">
-              {displayText.map((line, index) => (
-                <div key={index} className={`line ${line.type}`}>
-                  {line.type === 'command' && <span className="prompt">$ </span>}
-                  {line.text}
-                </div>
+              {lines.map((line, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.2 }}
+                  className={`line ${line.type}`}
+                >
+                  {line.type === "boot" && (
+                    <>
+                      <span>{line.text}</span>
+                      <span className="boot-ok"> [ OK ]</span>
+                    </>
+                  )}
+
+                  {line.type === "command" && (
+                    <span className="prompt">
+                      <span className="time">[{getTime()}]</span>{" "}
+                      <span className="user">paulo@kali</span>
+                      <span className="path">:~</span>{" "}
+                      <span className="git">(portfolio)</span>{" "}
+                      <span className="dollar">$</span>{" "}
+                      {line.text}
+                    </span>
+                  )}
+
+                  {line.type === "ascii" && !isMobile && (
+                    <pre>{asciiFrames[asciiFrame]}</pre>
+                  )}
+
+                  {line.type === "progress" && (
+                    <div className="progress-container">
+                      <div
+                        className="progress-bar"
+                        style={{ width: `${progress}%` }}
+                      />
+                      <span className="progress-text">
+                        Building… {Math.floor(progress)}%
+                      </span>
+                    </div>
+                  )}
+
+                  {["output", "warning", "success"].includes(line.type) && (
+                    <span>{line.text}</span>
+                  )}
+                </motion.div>
               ))}
-              <span className="cursor">_</span>
+
+              <div className="line command">
+                <span className="prompt">
+                  <span className="time">[{getTime()}]</span>{" "}
+                  <span className="user">paulo@kali</span>
+                  <span className="path">:~</span>{" "}
+                  <span className="git">(portfolio)</span>{" "}
+                  <span className="dollar">$</span>{" "}
+                </span>
+                <span className="cursor">█</span>
+              </div>
             </div>
           </motion.div>
         </motion.div>
       )}
     </AnimatePresence>
   );
-};
-
-export default Terminal;
+}

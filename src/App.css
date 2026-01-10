@@ -1,1 +1,29 @@
-/* Estilos customizados do portfolio */
+.animated-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(
+      circle at var(--x, 50%) var(--y, 50%),
+      color-mix(in srgb, var(--accent, #4af626) 20%, transparent),
+      transparent 45%
+    ),
+    linear-gradient(120deg, #020617, #000);
+  animation: bgFloat 16s ease-in-out infinite alternate;
+  transition: opacity 0.8s ease;
+}
+
+@keyframes bgFloat {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 100% 50%; }
+}
+
+.animated-bg.glitch {
+  animation: glitch 0.12s linear;
+}
+
+@keyframes glitch {
+  0% { filter: hue-rotate(0deg); }
+  50% { filter: hue-rotate(12deg) brightness(1.2); }
+  100% { filter: none; }
+}

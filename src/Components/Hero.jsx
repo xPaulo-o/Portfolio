@@ -2,6 +2,7 @@ import TextType from './TextType';
 import { useLanguage } from '../Components/LanguageContext';
 import fotoPerfil from '../assets/perfil.jpg';
 import { FaGithub, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
+import Typewriter from './Typewriter';
 
 export default function Hero() {
   const { t } = useLanguage();
@@ -16,6 +17,8 @@ export default function Hero() {
         </div>
       </div>
 
+      <h1>{t.presentation}</h1>
+
       <TextType
         text="Paulo Augusto de Almeida Céspedes"
         as="h1"
@@ -25,10 +28,21 @@ export default function Hero() {
         loop={false}
       />
 
-      <p className="text-zinc-400 text-base mb-6">
-        Estudante de Tecnologia da Informação (5º Período)
-      </p>
+      <div className="text-zinc-400 text-base mb-6 h-8 flex items-center gap-2">
+        <span>{t.specialized_in}</span>
+        {t.specialties && (
+          <Typewriter
+            key={t.specialties[0]}
+            words={t.specialties}
+            speed={80}
+            delay={2500}
+          />
+        )}
+      </div>
 
+      <h1>{t.resume}</h1>
+
+      <h1>{t.follow}</h1>
 
       <div className="flex gap-4 mt-8">
         <a
@@ -48,7 +62,7 @@ export default function Hero() {
         >
           <FaLinkedinIn />
         </a>
-               <a
+        <a
           href="https://www.instagram.com/xpaulo_o2/"
           target="_blank"
           rel="noopener noreferrer"
