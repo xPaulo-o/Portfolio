@@ -3,6 +3,9 @@ import { useLanguage } from "./LanguageContext";
 import { motion, AnimatePresence } from "framer-motion";
 import { HiChevronDown, HiMenu, HiX } from "react-icons/hi";
 import Clock from "./Clock";
+import brFlag from "../assets/br.png";
+import usFlag from "../assets/us.png";
+import esFlag from "../assets/es.png";
 
 export default function Navbar() {
   const { lang, setLang, t, accent } = useLanguage();
@@ -74,9 +77,9 @@ export default function Navbar() {
   ];
 
   const languages = [
-    { code: "pt", label: "Português", flag: "/src/assets/br.png", env: "pt_BR" },
-    { code: "en", label: "English", flag: "/src/assets/us.png", env: "en_US" },
-    { code: "es", label: "Español", flag: "/src/assets/es.png", env: "es_ES" },
+    { code: "pt", label: "Português", flag: brFlag, env: "pt_BR" },
+    { code: "en", label: "English", flag: usFlag, env: "en_US" },
+    { code: "es", label: "Español", flag: esFlag, env: "es_ES" },
   ];
 
   const currentLang = languages.find((l) => l.code === lang);
