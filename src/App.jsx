@@ -17,7 +17,7 @@ import "./App.css";
 
 function App() {
   const { t, lang, accent } = useLanguage();
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(() => !sessionStorage.getItem("intro_shown"));
 
   useEffect(() => {
     const link = document.querySelector("link[rel~='icon']");

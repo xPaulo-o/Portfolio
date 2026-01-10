@@ -74,7 +74,10 @@ export default function Terminal({ onComplete }) {
 
         setTimeout(() => {
           setIsExiting(true);
-          setTimeout(onComplete, 900);
+          setTimeout(() => {
+            onComplete();
+            sessionStorage.setItem("intro_shown", "true");
+          }, 900);
         }, 1200);
         return;
       }
