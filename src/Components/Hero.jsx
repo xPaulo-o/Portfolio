@@ -1,6 +1,11 @@
+import { useState, useEffect } from "react";
 import { TypingText } from "./TypingText";
 import { useLanguage } from "./LanguageContext";
-import fotoPerfil from "../assets/perfil.jpg";
+import { WhoamiTerminal } from "./WhoamiTerminal";
+
+import fotoPT from "../assets/perfil_pt.jpg";
+import fotoEN from "../assets/perfil_en.jpg";
+import fotoES from "../assets/perfil_es.jpg";
 
 import {
   FaGithub,
@@ -9,35 +14,71 @@ import {
 } from "react-icons/fa";
 
 export default function Hero() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
+  const [terminalOpen, setTerminalOpen] = useState(false);
+  const [status, setStatus] = useState("online");
+
+  const avatars = { pt: fotoPT, en: fotoEN, es: fotoES };
+
+  const statusMap = {
+    online: { label: "online", color: "#4af626" },
+    idle: { label: "idle", color: "#facc15" },
+    busy: { label: "busy", color: "#ef4444" },
+  };
+
+  useEffect(() => {
+    const states = ["online", "idle", "busy"];
+    let i = 0;
+    const interval = setInterval(() => {
+      i = (i + 1) % states.length;
+      setStatus(states[i]);
+    }, 6000);
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    const esc = (e) => e.key === "Escape" && setTerminalOpen(false);
+    window.addEventListener("keydown", esc);
+    return () => window.removeEventListener("keydown", esc);
+  }, []);
 
   return (
     <section className="max-w-2xl mx-auto px-6 pt-24 pb-12 relative z-10">
 
-      {/* Avatar */}
-      <div className="mb-6">
-        <div className="
-          w-20 h-20 rounded-full
-          bg-zinc-800
-          border border-zinc-700
-          overflow-hidden
-          transition-transform duration-300
-          hover:scale-105
-        ">
+      {/* ================= AVATAR ================= */}
+      <div
+        className="mb-6 group relative w-fit cursor-pointer"
+        onClick={() => setTerminalOpen(true)}
+      >
+        {/* Glow */}
+        <div
+          className="absolute inset-0 rounded-full blur-md opacity-40 animate-pulse"
+          style={{ backgroundColor: statusMap[status].color }}
+        />
+
+        {/* Avatar */}
+        <div className="relative w-20 h-20 rounded-full overflow-hidden border border-white/20 transition-all group-hover:scale-110 group-active:animate-[glitch_0.3s]">
           <img
-            src={fotoPerfil}
+            src={avatars[lang]}
             alt="Paulo Augusto"
             className="w-full h-full object-cover"
           />
         </div>
+
+        {/* Tooltip Corrigido: Posicionado à direita */}
+        <div className="absolute left-full top-1/2 -translate-y-1/2 ml-4 opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none whitespace-nowrap text-[10px] font-mono text-zinc-400 bg-black/80 border border-white/10 rounded-md p-3 z-50">
+          <p>id: paulo</p>
+          <p>uptime: 12h 34m</p>
+          <p>location: BR-GO</p>
+          <p style={{ color: statusMap[status].color }}>
+            status: {statusMap[status].label}
+          </p>
+        </div>
       </div>
 
-      {/* Apresentação */}
-      <p className="text-sm text-zinc-400 mb-1">
-        {t.presentation}
-      </p>
+      {/* ================= TEXTO ================= */}
+      <p className="text-sm text-zinc-400 mb-1">{t.presentation}</p>
 
-      {/* Nome */}
       <TypingText
         text="Paulo Augusto de Almeida Céspedes"
         as="h1"
@@ -46,104 +87,43 @@ export default function Hero() {
         cursor="_"
       />
 
-      {/* Especialidades */}
-      <div className="text-zinc-400 text-sm mb-6 flex flex-wrap items-center gap-2">
-        <span>{t.specialized_in}</span>
-        {t.specialties && (
-          <TypingText
-            key={t.specialties[0]}
-            words={t.specialties}
-            speed={80}
-            delay={2500}
-            loop={true}
-            cursor="|"
-          />
-        )}
-      </div>
+      <p className="text-zinc-300 text-sm mb-6">{t.resume}</p>
 
-      {/* Resumo */}
-      <p className="text-zinc-300 text-sm leading-relaxed max-w-xl mb-8">
-        {t.resume}
-      </p>
-
-      {/* Follow */}
-      <p className="text-xs text-zinc-500 mb-3">
-        {t.follow}
-      </p>
-
-      {/* Social Icons */}
+      {/* ================= SOCIAL ================= */}
       <div className="flex gap-4">
-
-        {/* GitHub */}
-        <a
-          href="https://github.com/xPaulo-o"
-          target="_blank"
-          rel="noopener noreferrer"
-          title="GitHub"
-          className="
-            w-11 h-11
-            flex items-center justify-center
-            rounded-xl
-            border border-white/10
-            bg-black/40
-            text-zinc-400
-            text-xl
-            transition-all duration-300
-            hover:text-white
-            hover:border-white/30
-            hover:shadow-[0_0_25px_-10px_rgba(255,255,255,0.3)]
-          "
-        >
-          <FaGithub />
-        </a>
-
-        {/* LinkedIn */}
-        <a
-          href="https://www.linkedin.com/in/paulo-augusto-b579513a1"
-          target="_blank"
-          rel="noopener noreferrer"
-          title="LinkedIn"
-          className="
-            w-11 h-11
-            flex items-center justify-center
-            rounded-xl
-            border border-white/10
-            bg-black/40
-            text-zinc-400
-            text-xl
-            transition-all duration-300
-            hover:text-[#0A66C2]
-            hover:border-[#0A66C2]/40
-            hover:shadow-[0_0_25px_-10px_rgba(10,102,194,0.5)]
-          "
-        >
-          <FaLinkedinIn />
-        </a>
-
-        {/* Instagram */}
-        <a
-          href="https://www.instagram.com/xpaulo_o2/"
-          target="_blank"
-          rel="noopener noreferrer"
-          title="Instagram"
-          className="
-            w-11 h-11
-            flex items-center justify-center
-            rounded-xl
-            border border-white/10
-            bg-black/40
-            text-zinc-400
-            text-xl
-            transition-all duration-300
-            hover:text-pink-400
-            hover:border-pink-400/40
-            hover:shadow-[0_0_25px_-10px_rgba(236,72,153,0.5)]
-          "
-        >
-          <FaInstagram />
-        </a>
-
+        <Social href="https://github.com/xPaulo-o" color="#ffffff"><FaGithub /></Social>
+        <Social href="https://linkedin.com" color="#0077b5"><FaLinkedinIn /></Social>
+        <Social href="https://instagram.com" color="#E1306C"><FaInstagram /></Social>
       </div>
+
+      <WhoamiTerminal open={terminalOpen} onClose={() => setTerminalOpen(false)} />
+
+      {/* Glitch animation */}
+      <style>
+        {`
+          @keyframes glitch {
+            0% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(2px, -2px); }
+            60% { transform: translate(-2px, 1px); }
+            100% { transform: translate(0); }
+          }
+        `}
+      </style>
     </section>
+  );
+}
+
+function Social({ href, color, children }) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      style={{ "--social-color": color }}
+      className="w-11 h-11 flex items-center justify-center rounded-xl border border-white/10 bg-black/40 text-zinc-400 text-xl transition-all duration-300 hover:text-[var(--social-color)] hover:border-[var(--social-color)] hover:shadow-[0_0_20px_-5px_var(--social-color)]"
+    >
+      {children}
+    </a>
   );
 }

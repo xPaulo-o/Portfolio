@@ -27,16 +27,11 @@ export const translations = {
         university: "Faculdades e Colégio Aphonsiano, Trindade - GO",
         graduation2: "Titulo Tecnico em Reparo de Celulares",
         university2: "Vision Crursos, Goiânia - GO",
-        specialties: ["Desenvolvimento", "Manutenção em hardware", "Segurança da Informação"],
-        specialized_in: "Tenho Conhecimento em:",
         terminal_contact: "Iniciar conversa via WhatsApp...",
         terminal_email: "Enviar um Email",
-        terminal_status: "CONEXÃO ESTABELECIDA",
-        click_to_call: "CLIQUE PARA INICIAR CONVERSA",
         contact: "Contato",
         projects_ls: "ls projects/",
         projects_open: "abrir projeto",
-        project_view: "Ver projeto",
         education_cmd: "cat education.txt"
     },
     es: {
@@ -61,16 +56,11 @@ export const translations = {
         university: "Faculdades e Colégio Aphonsiano, Trindade - GO",
         graduation2: "Titulo Técnico en Reparo de Celulares",
         university2: "Vision Crursos, Goiânia - GO",
-        specialties: ["Desarrollo", "mantenimiento en hardware", "Seguridad de la Información"],
-        specialized_in: "tengo Conocimientos en:",
         terminal_contact: "Iniciar conversación vía WhatsApp...",
         terminal_email: "Enviar un Correo Electrónico",
-        terminal_status: "CONEXIÓN ESTABLECIDA",
-        click_to_call: "HAGA CLIC PARA INICIAR LA CONVERSACIÓN",
         contact: "Contacto",
         projects_ls: "ls projects/",
         projects_open: "abrir proyecto",
-        project_view: "Ver proyecto",
         education_cmd: "cat education.txt"
     },
     en: {
@@ -95,24 +85,26 @@ export const translations = {
         university: "Faculdades e Colégio Aphonsiano, Trindade - GO",
         graduation2: "Technical Degree in Mobile Phone Repair",
         university2: "Vision Crursos, Goiânia - GO",
-        specialties: ["Development", "Hardware Maintenance", "Information Security"],
-        specialized_in: "I Have Skills in:",
         terminal_contact: "Start conversation via WhatsApp...",
         terminal_email: "Send an Email",
-        terminal_status: "CONNECTION ESTABLISHED",
-        click_to_call: "CLICK TO START CONVERSATION",
         contact: "Contact",
         projects_ls: "ls projects/",
         projects_open: "open project",
-        project_view: "View project",
         education_cmd: "cat education.txt"
     }
 };
 
 export const LanguageProvider = ({ children }) => {
     const [lang, setLang] = useState('pt');
+
+    const colors = {
+        pt: "#4af626",
+        en: "#38bdf8",
+        es: "#facc15",
+    };
+
     return (
-        <LanguageContext.Provider value={{ lang, setLang, t: translations[lang] }}>
+        <LanguageContext.Provider value={{ lang, setLang, t: translations[lang], colors, accent: colors[lang] }}>
             {children}
         </LanguageContext.Provider>
     );

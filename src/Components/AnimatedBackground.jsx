@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useLanguage } from "./LanguageContext";
 
 export default function AnimatedBackground({ active }) {
-    const { lang } = useLanguage();
+    const { accent } = useLanguage();
     const [pos, setPos] = useState({ x: 50, y: 50 });
     const [glitch, setGlitch] = useState(false);
 
@@ -29,19 +29,13 @@ export default function AnimatedBackground({ active }) {
         return () => window.removeEventListener("scroll", onScroll);
     }, []);
 
-    const colors = {
-        pt: "#4af626",
-        en: "#38bdf8",
-        es: "#facc15",
-    };
-
     return (
         <div
             className={`animated-bg ${glitch ? "glitch" : ""}`}
             style={{
                 "--x": `${pos.x}%`,
                 "--y": `${pos.y}%`,
-                "--accent": colors[lang],
+                "--accent": accent,
                 opacity: active ? 1 : 0,
             }}
         />

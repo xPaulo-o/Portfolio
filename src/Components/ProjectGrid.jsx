@@ -55,26 +55,34 @@ function TypeBadge({ type }) {
 }
 
 function ProjectCard({ project }) {
-  const { lang, t } = useLanguage();
+  const { lang, t, accent } = useLanguage();
   const [ref, isVisible] = useOnScreen("-80px");
 
   return (
     <Reveal>
-      <div
+      <a
         ref={ref}
+        href={project.link}
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{
+          "--accent": accent,
+          "--accent-dim": accent + "59",
+          "--accent-border": accent + "66",
+        }}
         className="
-          group rounded-2xl
+          block group rounded-2xl
           border border-white/10
           bg-black/40
           p-6
           font-mono
           transition-all duration-300
-          hover:border-[#4af626]/40
-          hover:shadow-[0_0_30px_-10px_rgba(74,246,38,0.35)]
+          hover:border-[var(--accent-border)]
+          hover:shadow-[0_0_30px_-10px_var(--accent-dim)]
         "
       >
         <div className="text-xs text-zinc-400 mb-3 flex items-center gap-2">
-          <span className="text-[#4af626]">$</span>
+          <span className="text-[var(--accent)]">$</span>
           <TypingText
             text={`${t.projects_open} ${project.folder}`}
             start={isVisible}
@@ -103,23 +111,16 @@ function ProjectCard({ project }) {
           ))}
         </div>
 
-        <div className="mt-5">
-          <a
-            href={project.link}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center gap-2 text-xs font-medium text-[#4af626] hover:underline"
-          >
-            <FaGithub /> GitHub
-          </a>
+        <div className="mt-5 flex items-center gap-2 text-xs font-medium text-[var(--accent)] opacity-80 group-hover:opacity-100 transition-opacity">
+          <FaGithub /> GitHub ↗
         </div>
-      </div>
+      </a>
     </Reveal>
   );
 }
 
 export default function ProjectGrid() {
-  const { t } = useLanguage();
+  const { t, accent } = useLanguage();
   const [ref, isVisible] = useOnScreen("-120px");
 
   return (
@@ -129,7 +130,7 @@ export default function ProjectGrid() {
       </h2>
 
       <div className="font-mono text-xs text-zinc-400 mb-6 flex gap-2">
-        <span className="text-[#4af626]">$</span>
+        <span style={{ color: accent }}>$</span>
         <TypingText text={t.projects_ls} start={isVisible} />
       </div>
 

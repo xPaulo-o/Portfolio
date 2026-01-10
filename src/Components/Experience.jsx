@@ -2,6 +2,70 @@ import { TerminalSection } from "./TerminalSection";
 import { useLanguage } from "./LanguageContext";
 import { HiBriefcase } from "react-icons/hi";
 import { FaExternalLinkAlt } from "react-icons/fa";
+import { TypingText } from "./TypingText";
+import { useOnScreen } from "./useOnScreen";
+import { Reveal } from "./Reveal";
+
+function ExperienceCard({ exp }) {
+  const { accent } = useLanguage();
+  const [ref, isVisible] = useOnScreen("-80px");
+
+  // Gera um nome de arquivo fake baseado na empresa
+  const filename = `${exp.company.split(" ")[0].toLowerCase()}_log.txt`;
+
+  return (
+    <a
+      ref={ref}
+      href={exp.link}
+      target="_blank"
+      rel="noopener noreferrer"
+      style={{
+        "--accent": accent,
+        "--accent-dim": accent + "59",
+        "--accent-border": accent + "66",
+      }}
+      className="
+        block rounded-2xl
+        border border-white/10
+        bg-black/40
+        p-5
+        font-mono
+        transition-all duration-300
+        hover:border-[var(--accent-border)]
+        hover:shadow-[0_0_30px_-10px_var(--accent-dim)]
+        group
+      "
+    >
+      {/* Fake command */}
+      <div className="flex items-center gap-2 text-sm mb-3 text-zinc-400">
+        <span className="text-[var(--accent)]">$</span>
+        <TypingText text={`cat ${filename}`} start={isVisible} />
+      </div>
+
+      <div className="flex items-center gap-3 mb-2">
+        <HiBriefcase className="text-[var(--accent)] text-lg" />
+        <h3 className="text-sm font-bold text-zinc-200 group-hover:text-white transition-colors">
+          {exp.role}
+        </h3>
+      </div>
+
+      <div className="ml-7">
+        <p className="text-xs text-zinc-400 flex items-center gap-2 mb-3">
+          {exp.company}
+          <FaExternalLinkAlt className="text-[10px] opacity-50 group-hover:opacity-100 transition-opacity" />
+        </p>
+
+        <p className="text-xs text-zinc-300 leading-relaxed opacity-90">
+          {exp.description}
+        </p>
+
+        <p className="text-[10px] text-[var(--accent)] mt-3 italic opacity-80">
+          ✔ {exp.status}
+        </p>
+      </div>
+    </a>
+  );
+}
 
 export function Experience() {
   const { t } = useLanguage();
@@ -34,60 +98,13 @@ export function Experience() {
 
   return (
     <TerminalSection command="cat experience.log --timeline">
-      {experiences.map((exp, index) => (
-        <div key={index} className="relative pl-6 space-y-2">
-
-          {/* timeline dot */}
-          <span className="absolute left-0 top-2 w-2 h-2 rounded-full bg-[#4af626]" />
-
-          {/* role + status */}
-          <div className="flex items-center gap-2 flex-wrap">
-            <HiBriefcase className="text-[#4af626]" />
-
-            <span className="text-sm font-bold text-zinc-200">
-              {exp.role}
-            </span>
-
-            <span className="
-              text-[10px]
-              px-2 py-0.5
-              rounded-full
-              bg-[#4af626]/10
-              text-[#4af626]
-              border border-[#4af626]/30
-            ">
-              {exp.status}
-            </span>
-          </div>
-
-          {/* company + link */}
-          <a
-            href={exp.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="
-              flex items-center gap-2
-              text-xs text-zinc-400
-              hover:text-[#4af626]
-              transition-colors
-              w-fit
-            "
-          >
-            {exp.company}
-            <FaExternalLinkAlt className="text-[10px]" />
-          </a>
-
-          {/* description */}
-          <p className="text-xs text-zinc-300 leading-relaxed max-w-xl">
-            {exp.description}
-          </p>
-
-          {/* boot feedback */}
-          <p className="text-[10px] text-zinc-500 italic">
-            [ OK ] experience entry loaded
-          </p>
-        </div>
-      ))}
+      <div className="space-y-4">
+        {experiences.map((exp, index) => (
+          <Reveal key={index}>
+            <ExperienceCard exp={exp} />
+          </Reveal>
+        ))}
+      </div>
     </TerminalSection>
   );
 }

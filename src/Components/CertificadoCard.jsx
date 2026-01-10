@@ -2,8 +2,10 @@ import { HiBadgeCheck } from "react-icons/hi";
 import { FaFilePdf, FaExternalLinkAlt } from "react-icons/fa";
 import { useOnScreen } from "./useOnScreen";
 import { TypingText } from "./TypingText";
+import { useLanguage } from "./LanguageContext";
 
 export function CertificadoCard({ cert, index }) {
+  const { accent } = useLanguage();
   const [ref, isVisible] = useOnScreen("-80px");
 
   return (
@@ -12,21 +14,26 @@ export function CertificadoCard({ cert, index }) {
       href={cert.link}
       target="_blank"
       rel="noopener noreferrer"
+      style={{
+        "--accent": accent,
+        "--accent-dim": accent + "59", // ~35% opacidade para sombra
+        "--accent-border": accent + "66", // ~40% opacidade para borda
+      }}
       className="
-        block rounded-2xl
+        block h-full rounded-2xl
         border border-white/10
         bg-black/40
         p-5
         font-mono
         transition-all duration-300
-        hover:border-[#4af626]/40
-        hover:shadow-[0_0_30px_-10px_rgba(74,246,38,0.35)]
+        hover:border-[var(--accent-border)]
+        hover:shadow-[0_0_30px_-10px_var(--accent-dim)]
         group
       "
     >
       {/* comando fake */}
       <div className="flex items-center gap-2 text-sm mb-3 text-zinc-400">
-        <span className="text-[#4af626]">$</span>
+        <span className="text-[var(--accent)]">$</span>
         <TypingText
           text={`verify --cert ${cert.title.replaceAll(" ", "_")}`}
           start={isVisible}
@@ -36,14 +43,21 @@ export function CertificadoCard({ cert, index }) {
       {/* conteúdo */}
       <div className="ml-4 border-l border-white/10 pl-4 space-y-2">
         <div className="flex items-center gap-2">
-          <HiBadgeCheck className="text-[#4af626] text-lg" />
+          <HiBadgeCheck className="text-[var(--accent)] text-lg" />
 
           <h4 className="text-sm font-bold text-zinc-200">
             <TypingText text={cert.title} start={isVisible} />
           </h4>
 
           {cert.verified && (
-            <span className="ml-2 px-2 py-0.5 text-[10px] font-bold rounded-full bg-[#4af626]/10 text-[#4af626] border border-[#4af626]/30">
+            <span
+              style={{
+                backgroundColor: accent + "1a", // 10% opacidade
+                color: accent,
+                borderColor: accent + "4d", // 30% opacidade
+              }}
+              className="ml-2 px-2 py-0.5 text-[10px] font-bold rounded-full border"
+            >
               VERIFIED
             </span>
           )}
@@ -59,7 +73,7 @@ export function CertificadoCard({ cert, index }) {
 
         <p className="text-xs text-zinc-400 flex items-center gap-2">
           {cert.external ? (
-            <FaExternalLinkAlt className="text-[#4af626]" />
+            <FaExternalLinkAlt className="text-[var(--accent)]" />
           ) : (
             <FaFilePdf className="text-red-400" />
           )}
