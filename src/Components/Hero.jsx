@@ -11,6 +11,7 @@ import {
   FaGithub,
   FaInstagram,
   FaLinkedinIn,
+  FaFileDownload,
 } from "react-icons/fa";
 
 export default function Hero() {
@@ -88,6 +89,18 @@ export default function Hero() {
       />
 
       <p className="text-zinc-300 text-sm mb-6">{t.resume}</p>
+
+      {/* ================= CV BUTTON ================= */}
+      <div className="mb-6">
+        <a
+          href="/curriculo.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all text-zinc-200 hover:text-white text-sm font-mono group"
+        >
+          <FaFileDownload className="text-zinc-400 group-hover:text-white transition-colors" /> {t.download_cv}
+        </a>
+      </div>
 
       {/* ================= SOCIAL ================= */}
       <div className="flex gap-4">
