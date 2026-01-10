@@ -18,6 +18,7 @@ export function CertificadoCard({ cert, index }) {
         "--accent": accent,
         "--accent-dim": accent + "59", // ~35% opacidade para sombra
         "--accent-border": accent + "66", // ~40% opacidade para borda
+        animationDelay: `${index * 0.2}s`,
       }}
       className="
         block h-full rounded-2xl
@@ -26,6 +27,7 @@ export function CertificadoCard({ cert, index }) {
         p-5
         font-mono
         transition-all duration-300
+        mobile-glow
         hover:border-[var(--accent-border)]
         hover:shadow-[0_0_30px_-10px_var(--accent-dim)]
         group

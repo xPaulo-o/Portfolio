@@ -27,3 +27,22 @@
   50% { filter: hue-rotate(12deg) brightness(1.2); }
   100% { filter: none; }
 }
+
+/* Mobile Glow Animation */
+@keyframes pulseGlow {
+  0%, 100% {
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 0 0 transparent;
+  }
+  50% {
+    border-color: var(--accent-border);
+    box-shadow: 0 0 20px -5px var(--accent-dim);
+  }
+}
+
+@media (max-width: 768px) {
+  .mobile-glow {
+    animation: pulseGlow 3s ease-in-out infinite;
+    will-change: border-color, box-shadow;
+  }
+}

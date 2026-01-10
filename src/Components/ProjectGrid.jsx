@@ -54,7 +54,7 @@ function TypeBadge({ type }) {
   );
 }
 
-function ProjectCard({ project }) {
+function ProjectCard({ project, index }) {
   const { lang, t, accent } = useLanguage();
   const [ref, isVisible] = useOnScreen("-80px");
 
@@ -69,6 +69,7 @@ function ProjectCard({ project }) {
           "--accent": accent,
           "--accent-dim": accent + "59",
           "--accent-border": accent + "66",
+          animationDelay: `${index * 0.2}s`,
         }}
         className="
           block group rounded-2xl
@@ -77,6 +78,7 @@ function ProjectCard({ project }) {
           p-6
           font-mono
           transition-all duration-300
+          mobile-glow
           hover:border-[var(--accent-border)]
           hover:shadow-[0_0_30px_-10px_var(--accent-dim)]
         "
@@ -136,7 +138,7 @@ export default function ProjectGrid() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {projects.map((project, index) => (
-          <ProjectCard key={index} project={project} />
+          <ProjectCard key={index} project={project} index={index} />
         ))}
       </div>
     </section>

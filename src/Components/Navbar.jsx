@@ -251,6 +251,37 @@ export default function Navbar() {
                   &gt; {l.label}
                 </a>
               ))}
+
+              {/* Mobile Language Switcher */}
+              <div className="pt-6 mt-6 border-t border-white/10">
+                <div className="flex flex-col gap-4">
+                  <span className="text-xs text-zinc-500 uppercase tracking-wider font-mono">
+                    Select Language
+                  </span>
+                  <div className="grid grid-cols-3 gap-3">
+                    {languages.map((l) => (
+                      <button
+                        key={l.code}
+                        onClick={() => {
+                          changeLanguage(l);
+                          setMobileOpen(false);
+                        }}
+                        className={`
+                          flex flex-col items-center justify-center gap-2 p-3 rounded-lg border transition-all
+                          ${lang === l.code ? "bg-white/5" : "border-white/5 hover:bg-white/5"}
+                        `}
+                        style={{
+                          borderColor: lang === l.code ? accent : "rgba(255,255,255,0.1)",
+                          color: lang === l.code ? accent : "#a1a1aa"
+                        }}
+                      >
+                        <img src={l.flag} className="w-6 h-4 rounded-sm shadow-sm" alt={l.label} />
+                        <span className="text-xs font-mono font-bold">{l.code.toUpperCase()}</span>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </div>
             </div>
           </motion.div>
         )}

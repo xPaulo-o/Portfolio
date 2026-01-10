@@ -81,11 +81,17 @@ export function Skills() {
               text-xs text-zinc-300
               font-mono
               transition-all duration-300
+              mobile-glow
               hover:text-white
               hover:border-[var(--skill)]
               hover:shadow-[0_0_25px_-10px_var(--skill)]
             "
-            style={{ "--skill": skill.color }}
+            style={{
+              "--skill": skill.color,
+              "--accent-border": skill.color + "66",
+              "--accent-dim": skill.color + "59",
+              animationDelay: `${index * 0.1}s`,
+            }}
           >
             <span className="text-base">{skill.icon}</span>
             {skill.name}
@@ -116,10 +122,16 @@ export function Skills() {
                 bg-black/40
                 font-mono
                 transition-all duration-300
+                mobile-glow
                 hover:border-[var(--lang)]
                 hover:shadow-[0_0_25px_-10px_var(--lang)]
               "
-              style={{ "--lang": lng.color }}
+              style={{
+                "--lang": lng.color,
+                "--accent-border": lng.color + "66",
+                "--accent-dim": lng.color + "59",
+                animationDelay: `${index * 0.2}s`,
+              }}
               title={`Certification: ${lng.cert}`}
             >
               {/* HEADER */}

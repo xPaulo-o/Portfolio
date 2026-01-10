@@ -16,9 +16,8 @@ import { Skills } from "./Components/Skills";
 import "./App.css";
 
 function App() {
-  const { t, lang } = useLanguage();
+  const { t, lang, accent } = useLanguage();
   const [loading, setLoading] = useState(true);
-  const isMobile = window.innerWidth < 768;
 
 
   return (
@@ -27,7 +26,7 @@ function App() {
         <Terminal key="terminal-loader" onComplete={() => setLoading(false)} />
       ) : (
         <>
-          <AnimatedBackground active={!loading && !isMobile} />
+          <AnimatedBackground active={!loading} />
 
           <motion.main
             key="portfolio-content"
@@ -36,7 +35,12 @@ function App() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="relative min-h-screen pb-20 overflow-hidden"
           >
-            <div className="fixed top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-zinc-900/20 blur-[120px] pointer-events-none z-0" />
+            <motion.div
+              animate={{ opacity: [0.2, 0.4, 0.2] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              className="fixed top-0 left-1/2 -translate-x-1/2 w-full h-[500px] blur-[120px] pointer-events-none z-0"
+              style={{ backgroundColor: `${accent}1a` }}
+            />
             <div className="relative z-10 pt-16">
               <Navbar />
 

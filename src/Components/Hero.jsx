@@ -65,8 +65,8 @@ export default function Hero() {
           />
         </div>
 
-        {/* Tooltip Corrigido: Posicionado à direita */}
-        <div className="absolute left-full top-1/2 -translate-y-1/2 ml-4 opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none whitespace-nowrap text-[10px] font-mono text-zinc-400 bg-black/80 border border-white/10 rounded-md p-3 z-50">
+        {/* Tooltip Responsivo: Abaixo no mobile, Direita no desktop */}
+        <div className="absolute left-1/2 -translate-x-1/2 top-full mt-4 md:left-full md:top-1/2 md:-translate-y-1/2 md:mt-0 md:ml-4 opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none whitespace-nowrap text-[10px] font-mono text-zinc-400 bg-black/80 border border-white/10 rounded-md p-3 z-50">
           <p>id: paulo</p>
           <p>uptime: 12h 34m</p>
           <p>location: BR-GO</p>
@@ -91,9 +91,9 @@ export default function Hero() {
 
       {/* ================= SOCIAL ================= */}
       <div className="flex gap-4">
-        <Social href="https://github.com/xPaulo-o" color="#ffffff"><FaGithub /></Social>
-        <Social href="https://linkedin.com" color="#0077b5"><FaLinkedinIn /></Social>
-        <Social href="https://instagram.com" color="#E1306C"><FaInstagram /></Social>
+        <Social href="https://github.com/xPaulo-o" color="#ffffff" index={0}><FaGithub /></Social>
+        <Social href="https://linkedin.com" color="#0077b5" index={1}><FaLinkedinIn /></Social>
+        <Social href="https://instagram.com" color="#E1306C" index={2}><FaInstagram /></Social>
       </div>
 
       <WhoamiTerminal open={terminalOpen} onClose={() => setTerminalOpen(false)} />
@@ -114,14 +114,19 @@ export default function Hero() {
   );
 }
 
-function Social({ href, color, children }) {
+function Social({ href, color, children, index = 0 }) {
   return (
     <a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      style={{ "--social-color": color }}
-      className="w-11 h-11 flex items-center justify-center rounded-xl border border-white/10 bg-black/40 text-zinc-400 text-xl transition-all duration-300 hover:text-[var(--social-color)] hover:border-[var(--social-color)] hover:shadow-[0_0_20px_-5px_var(--social-color)]"
+      style={{
+        "--social-color": color,
+        "--accent-border": color + "99", // Aumentado para ~60% de opacidade
+        "--accent-dim": color + "80",    // Aumentado para ~50% de opacidade
+        animationDelay: `${index * 0.2}s`,
+      }}
+      className="w-11 h-11 flex items-center justify-center rounded-xl border border-white/10 bg-black/40 text-zinc-300 text-xl transition-all duration-300 mobile-glow hover:text-[var(--social-color)] hover:border-[var(--social-color)] hover:shadow-[0_0_25px_-5px_var(--social-color)]"
     >
       {children}
     </a>

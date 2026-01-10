@@ -6,7 +6,7 @@ import { TypingText } from "./TypingText";
 import { useOnScreen } from "./useOnScreen";
 import { Reveal } from "./Reveal";
 
-function ExperienceCard({ exp }) {
+function ExperienceCard({ exp, index }) {
   const { accent } = useLanguage();
   const [ref, isVisible] = useOnScreen("-80px");
 
@@ -23,6 +23,7 @@ function ExperienceCard({ exp }) {
         "--accent": accent,
         "--accent-dim": accent + "59",
         "--accent-border": accent + "66",
+        animationDelay: `${index * 0.2}s`,
       }}
       className="
         block rounded-2xl
@@ -31,6 +32,7 @@ function ExperienceCard({ exp }) {
         p-5
         font-mono
         transition-all duration-300
+        mobile-glow
         hover:border-[var(--accent-border)]
         hover:shadow-[0_0_30px_-10px_var(--accent-dim)]
         group
@@ -101,7 +103,7 @@ export function Experience() {
       <div className="space-y-4">
         {experiences.map((exp, index) => (
           <Reveal key={index}>
-            <ExperienceCard exp={exp} />
+            <ExperienceCard exp={exp} index={index} />
           </Reveal>
         ))}
       </div>

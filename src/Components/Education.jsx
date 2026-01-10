@@ -6,7 +6,7 @@ import { FaExternalLinkAlt } from "react-icons/fa";
 import { TypingText } from "./TypingText";
 import { useOnScreen } from "./useOnScreen";
 
-function EducationCard({ item }) {
+function EducationCard({ item, index }) {
   const { accent } = useLanguage();
   const [ref, isVisible] = useOnScreen("-80px");
 
@@ -20,6 +20,7 @@ function EducationCard({ item }) {
         "--accent": accent,
         "--accent-dim": accent + "59",
         "--accent-border": accent + "66",
+        animationDelay: `${index * 0.2}s`,
       }}
       className="
         block rounded-2xl
@@ -28,6 +29,7 @@ function EducationCard({ item }) {
         p-5
         font-mono
         transition-all duration-300
+        mobile-glow
         hover:border-[var(--accent-border)]
         hover:shadow-[0_0_30px_-10px_var(--accent-dim)]
         group
@@ -94,7 +96,7 @@ export function Education() {
         <div className="space-y-4">
           {educationList.map((item, index) => (
             <Reveal key={index}>
-              <EducationCard item={item} />
+              <EducationCard item={item} index={index} />
             </Reveal>
           ))}
         </div>

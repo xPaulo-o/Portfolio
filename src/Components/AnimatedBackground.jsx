@@ -21,6 +21,7 @@ export default function AnimatedBackground({ active }) {
     useEffect(() => {
         let timeout;
         const onScroll = () => {
+            if (window.innerWidth < 768) return; // Performance: Desativa glitch no scroll mobile
             setGlitch(true);
             clearTimeout(timeout);
             timeout = setTimeout(() => setGlitch(false), 120);
