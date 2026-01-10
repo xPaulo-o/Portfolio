@@ -15,7 +15,7 @@ import {
 } from "react-icons/fa";
 
 export default function Hero() {
-  const { t, lang } = useLanguage();
+  const { t, lang, accent } = useLanguage();
   const [terminalOpen, setTerminalOpen] = useState(false);
   const [status, setStatus] = useState("online");
 
@@ -88,7 +88,23 @@ export default function Hero() {
         cursor="_"
       />
 
+      {/* ================= KNOWLEDGE LOOP ================= */}
+      <div className="flex flex-wrap items-center gap-2 mb-4 text-sm font-mono">
+        <span className="text-zinc-400">{t.knowledge_label}</span>
+        <span style={{ color: accent }} className="font-bold">
+          <TypingText
+            words={t.knowledge_list}
+            loop={true}
+            cursor={true}
+            speed={50}
+            deleteSpeed={30}
+            delay={2000}
+          />
+        </span>
+      </div>
+
       <p className="text-zinc-300 text-sm mb-6">{t.resume}</p>
+
 
       {/* ================= SOCIAL ================= */}
       <div className="flex gap-4">

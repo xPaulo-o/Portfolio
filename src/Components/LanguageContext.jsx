@@ -33,7 +33,9 @@ export const translations = {
         contact: "Contato",
         projects_ls: "ls projects/",
         projects_open: "abrir projeto",
-        education_cmd: "cat education.txt"
+        education_cmd: "cat education.txt",
+        knowledge_label: "Tenho Conhecimento em:",
+        knowledge_list: ["Desenvolvimento", "Manutenção de Hardware", "Segurança da Informação"]
     },
     es: {
         presentation: "Hola, soy:",
@@ -63,7 +65,9 @@ export const translations = {
         contact: "Contacto",
         projects_ls: "ls projects/",
         projects_open: "abrir proyecto",
-        education_cmd: "cat education.txt"
+        education_cmd: "cat education.txt",
+        knowledge_label: "Tengo Conocimiento en:",
+        knowledge_list: ["Desarrollo", "Mantenimiento de Hardware", "Seguridad de la Información"]
     },
     en: {
         presentation: "Hello, I am:",
@@ -93,7 +97,9 @@ export const translations = {
         contact: "Contact",
         projects_ls: "ls projects/",
         projects_open: "open project",
-        education_cmd: "cat education.txt"
+        education_cmd: "cat education.txt",
+        knowledge_label: "I have Knowledge in:",
+        knowledge_list: ["Development", "Hardware Maintenance", "Information Security"]
     }
 };
 
