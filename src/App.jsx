@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Terminal from "./Components/Terminal";
 import Navbar from "./Components/Navbar";
 import Hero from "./Components/Hero";
@@ -19,6 +19,17 @@ function App() {
   const { t, lang, accent } = useLanguage();
   const [loading, setLoading] = useState(true);
 
+  useEffect(() => {
+    const link = document.querySelector("link[rel~='icon']");
+    if (link) {
+      link.href = `${import.meta.env.BASE_URL}logo.png`;
+    } else {
+      const newLink = document.createElement("link");
+      newLink.rel = "icon";
+      newLink.href = `${import.meta.env.BASE_URL}logo.png`;
+      document.head.appendChild(newLink);
+    }
+  }, []);
 
   return (
     <AnimatePresence mode="wait">
