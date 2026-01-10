@@ -22,12 +22,12 @@ function App() {
   useEffect(() => {
     const link = document.querySelector("link[rel~='icon']");
     if (link) {
-      link.href = `${import.meta.env.BASE_URL}logo.png`;
+      link.href = `${import.meta.env.BASE_URL}logo.png?v=2`;
       link.type = "image/png";
     } else {
       const newLink = document.createElement("link");
       newLink.rel = "icon";
-      newLink.href = `${import.meta.env.BASE_URL}logo.png`;
+      newLink.href = `${import.meta.env.BASE_URL}logo.png?v=2`;
       newLink.type = "image/png";
       document.head.appendChild(newLink);
     }

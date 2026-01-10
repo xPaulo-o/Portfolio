@@ -66,7 +66,7 @@ export default function Hero() {
         </div>
 
         {/* Tooltip Responsivo: Abaixo no mobile, Direita no desktop */}
-        <div className="absolute left-1/2 -translate-x-1/2 top-full mt-4 md:left-full md:top-1/2 md:-translate-y-1/2 md:mt-0 md:ml-4 opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none whitespace-nowrap text-[10px] font-mono text-zinc-400 bg-black/80 border border-white/10 rounded-md p-3 z-50">
+        <div className="absolute left-1/2 -translate-x-1/2 top-full mt-6 md:left-full md:top-1/2 md:-translate-y-1/2 md:translate-x-0 md:mt-0 md:ml-8 opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none whitespace-nowrap text-[10px] font-mono text-zinc-400 bg-black/80 border border-white/10 rounded-md p-3 z-50">
           <p>id: paulo</p>
           <p>uptime: 12h 34m</p>
           <p>location: BR-GO</p>
