@@ -39,8 +39,8 @@ export function Certificados() {
       external: false,
     },
         {
-      title: "AWS Training & Certification",
-      org: "Essentials of PromptEngineering",
+      title: "Essentials of PromptEngineering",
+      org: "AWS Training & Certification",
       year: "2026",
       link: `${import.meta.env.BASE_URL}Certificados/AWS Training & Certification.pdf`,
       info: "Ver PDF ↗",
