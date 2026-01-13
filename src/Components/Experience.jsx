@@ -92,7 +92,7 @@ export function Experience() {
         t.gelnex_role,
       description:
         t.exp_desc_gelnex,
-      link: "https://menvievagas.com.br/sobre/gelnex",
+      link: "https://www.darlingii.com/pt-BR/rousselot/brands/our-gelatins",
       status: "Completed",
     },
   ];
