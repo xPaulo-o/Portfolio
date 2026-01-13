@@ -10,7 +10,6 @@ function ExperienceCard({ exp, index }) {
   const { accent } = useLanguage();
   const [ref, isVisible] = useOnScreen("-80px");
 
-  // Gera um nome de arquivo fake baseado na empresa
   const filename = `${exp.company.split(" ")[0].toLowerCase()}_log.txt`;
 
   return (

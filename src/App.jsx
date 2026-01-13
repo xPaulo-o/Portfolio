@@ -13,6 +13,7 @@ import FooterTerminal from "./Components/FooterTerminal";
 import AnimatedBackground from "./Components/AnimatedBackground";
 import { TerminalSection } from "./Components/TerminalSection";
 import { Skills } from "./Components/Skills";
+import Curriculum from "./Components/Curriculum";
 import "./App.css";
 
 function App() {
@@ -61,6 +62,7 @@ function App() {
 
                 <section id="inicio">
                   <Reveal><Hero /></Reveal>
+                  <Reveal><Curriculum /></Reveal>
                 </section>
 
                 <section id="sobre">
@@ -99,7 +101,7 @@ function App() {
             <section id="contato" className="py-12">
               <Reveal><FooterTerminal /></Reveal>
             </section>
-            
+
           </motion.main>
         </>
       )}

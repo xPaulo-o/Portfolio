@@ -139,8 +139,8 @@ function Social({ href, color, children, index = 0 }) {
       rel="noopener noreferrer"
       style={{
         "--social-color": color,
-        "--accent-border": color + "99", // Aumentado para ~60% de opacidade
-        "--accent-dim": color + "80",    // Aumentado para ~50% de opacidade
+        "--accent-border": color + "99",
+        "--accent-dim": color + "80",
         animationDelay: `${index * 0.2}s`,
       }}
       className="w-11 h-11 flex items-center justify-center rounded-xl border border-white/10 bg-black/40 text-zinc-300 text-xl transition-all duration-300 mobile-glow hover:text-[var(--social-color)] hover:border-[var(--social-color)] hover:shadow-[0_0_25px_-5px_var(--social-color)]"
