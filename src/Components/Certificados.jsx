@@ -38,11 +38,21 @@ export function Certificados() {
       verified: true,
       external: false,
     },
-        {
+      {
       title: "Essentials of PromptEngineering",
       org: "AWS Training & Certification",
       year: "2026",
       link: `${import.meta.env.BASE_URL}Certificados/AWS Training & Certification.pdf`,
+      info: "Ver PDF ↗",
+      verified: true,
+      external: false,
+    },
+
+      {
+      title: "AWS Technical Essentials",
+      org: "AWS Training & Certification",
+      year: "2026",
+      link: `${import.meta.env.BASE_URL}Certificados/AWS Technical Essentials.pdf`,
       info: "Ver PDF ↗",
       verified: true,
       external: false,
