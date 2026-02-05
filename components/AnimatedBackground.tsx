@@ -7,6 +7,68 @@ import {
   useScroll,
   useTransform,
 } from "framer-motion";
+import { useEffect, useState } from "react";
+
+function Duck() {
+  const [active, setActive] = useState(false);
+  const [config, setConfig] = useState({
+    y: "85%",
+    startX: "-10vw",
+    endX: "110vw",
+    scaleX: -1,
+    duration: 20,
+  });
+
+  useEffect(() => {
+    if (active) return;
+
+    // Intervalo aleatorio entre 10s e 40s para aparecer
+    const delay = Math.random() * 30000 + 10000;
+
+    const timeout = setTimeout(() => {
+      const isLeftToRight = Math.random() > 0.5;
+      // Posicao vertical aleatoria entre 10% e 90% da tela
+      const randomY = Math.floor(Math.random() * 80) + 10;
+      // Duracao da travessia aleatoria entre 20s e 40s
+      const randomDuration = Math.random() * 20 + 20;
+
+      setConfig({
+        y: `${randomY}%`,
+        startX: isLeftToRight ? "-10vw" : "110vw",
+        endX: isLeftToRight ? "110vw" : "-10vw",
+        scaleX: isLeftToRight ? -1 : 1, // Pato olha para esquerda por padrao. -1 vira para direita.
+        duration: randomDuration,
+      });
+      setActive(true);
+    }, delay);
+
+    return () => clearTimeout(timeout);
+  }, [active]);
+
+  if (!active) return null;
+
+  return (
+    <motion.div
+      initial={{ x: config.startX }}
+      animate={{ x: config.endX }}
+      transition={{
+        duration: config.duration,
+        ease: "linear",
+      }}
+      onAnimationComplete={() => setActive(false)}
+      className="absolute left-0 z-0 text-4xl opacity-20 pointer-events-none select-none"
+      style={{ top: config.y }}
+    >
+      <motion.div
+        animate={{ y: [0, -6, 0], rotate: [-5, 5, -5] }}
+        transition={{ duration: 0.8, repeat: Infinity, ease: "easeInOut" }}
+        style={{ scaleX: config.scaleX }}
+      >
+        🦆
+      </motion.div>
+    </motion.div>
+  );
+}
 
 export default function AnimatedBackground() {
   const shouldReduceMotion = useReducedMotion();
@@ -53,6 +115,7 @@ export default function AnimatedBackground() {
         className="animated-backdrop__orb animated-backdrop__orb--three"
         style={{ x: orbThreeX, y: orbThreeY, scale: orbThreeScale }}
       />
+      <Duck />
     </div>
   );
 }
