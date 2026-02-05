@@ -1,8 +1,9 @@
-﻿﻿"use client";
+﻿﻿﻿﻿"use client";
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/components/language";
+import { useIsMobile } from "@/components/useIsMobile";
 
 const certificates = [
   {
@@ -40,6 +41,7 @@ const certificates = [
 export default function Certificates() {
   const [open, setOpen] = useState(false);
   const { t } = useLanguage();
+  const isMobile = useIsMobile();
 
   return (
     <section id="certificates" className="py-24 sm:py-32 px-6 max-w-4xl mx-auto">
@@ -114,6 +116,8 @@ export default function Certificates() {
                     href={cert.url}
                     target="_blank"
                     rel="noreferrer"
+                    animate={isMobile ? { y: [0, -3, 0] } : undefined}
+                    transition={isMobile ? { repeat: Infinity, duration: 3, ease: "easeInOut" } : undefined}
                     variants={{
                       hidden: { opacity: 0, y: 20, scale: 0.95 },
                       visible: {
@@ -137,7 +141,9 @@ export default function Certificates() {
                       backgroundColor: "rgba(255, 255, 255, 0.08)",
                     }}
                     whileTap={{ scale: 0.98 }}
-                    className="flex flex-col justify-between rounded-2xl border border-white/10 bg-white/5 p-5 transition-colors hover:border-violet-500/40 group"
+                    className={`flex flex-col justify-between rounded-2xl border border-white/10 bg-white/5 p-5 transition-colors hover:border-violet-500/40 group ${
+                      isMobile ? "border-violet-500/30 shadow-[0_0_15px_rgba(124,58,237,0.15)]" : ""
+                    }`}
                   >
                     <div className="flex items-start justify-between gap-4">
                       <div>

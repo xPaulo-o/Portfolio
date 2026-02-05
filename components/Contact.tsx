@@ -3,10 +3,12 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/components/language";
+import { useIsMobile } from "@/components/useIsMobile";
 
 export default function Contact() {
   const [open, setOpen] = useState(false);
   const { t } = useLanguage();
+  const isMobile = useIsMobile();
 
   return (
     <section
@@ -15,13 +17,17 @@ export default function Contact() {
     >
       <h2 className="text-4xl font-bold text-white">{t.contact.title}</h2>
       <p className="mt-4 text-zinc-400">{t.contact.description}</p>
-      <button
+      <motion.button
         type="button"
         onClick={() => setOpen(true)}
-        className="inline-flex items-center justify-center mt-8 px-6 py-3 bg-violet-600 text-white rounded-full hover:bg-violet-700 transition"
+        animate={isMobile ? { y: [0, -4, 0] } : undefined}
+        transition={isMobile ? { repeat: Infinity, duration: 3, ease: "easeInOut" } : undefined}
+        className={`inline-flex items-center justify-center mt-8 px-6 py-3 bg-violet-600 text-white rounded-full hover:bg-violet-700 transition ${
+          isMobile ? "shadow-[0_0_15px_rgba(124,58,237,0.5)]" : ""
+        }`}
       >
         {t.contact.button}
-      </button>
+      </motion.button>
 
       <AnimatePresence>
         {open && (
@@ -51,7 +57,11 @@ export default function Contact() {
               <div className="mt-6 space-y-3">
                 <motion.a
                   href="mailto:pauloaugusto2355@gamil.com"
-                  className="flex flex-col items-center text-center gap-3 rounded-xl border border-white/10 bg-zinc-900/60 px-5 py-6 text-white hover:border-violet-500/60 hover:shadow-[0_0_18px_rgba(167,139,250,0.45)] transition"
+                  className={`flex flex-col items-center text-center gap-3 rounded-xl border border-white/10 bg-zinc-900/60 px-5 py-6 text-white hover:border-violet-500/60 hover:shadow-[0_0_18px_rgba(167,139,250,0.45)] transition ${
+                    isMobile
+                      ? "border-violet-500/60 shadow-[0_0_15px_rgba(167,139,250,0.45)]"
+                      : ""
+                  }`}
                   initial={{ opacity: 0, y: 12 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.4 }}
@@ -75,7 +85,11 @@ export default function Contact() {
                   href="https://wa.me/5564992639076"
                   target="_blank"
                   rel="noreferrer"
-                  className="flex flex-col items-center text-center gap-3 rounded-xl border border-white/10 bg-zinc-900/60 px-5 py-6 text-white hover:border-violet-500/60 hover:shadow-[0_0_18px_rgba(167,139,250,0.45)] transition"
+                  className={`flex flex-col items-center text-center gap-3 rounded-xl border border-white/10 bg-zinc-900/60 px-5 py-6 text-white hover:border-violet-500/60 hover:shadow-[0_0_18px_rgba(167,139,250,0.45)] transition ${
+                    isMobile
+                      ? "border-violet-500/60 shadow-[0_0_15px_rgba(167,139,250,0.45)]"
+                      : ""
+                  }`}
                   initial={{ opacity: 0, y: 12 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.4 }}

@@ -1,10 +1,11 @@
-﻿"use client";
+﻿﻿"use client";
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import Image from "next/image";
 import Typewriter from "@/components/Typewriter";
 import { useLanguage } from "@/components/language";
+import { useIsMobile } from "@/components/useIsMobile";
 
 const container = {
   hidden: {},
@@ -28,6 +29,7 @@ const item = {
 export default function Hero() {
   const [cvOpen, setCvOpen] = useState(false);
   const { t } = useLanguage();
+  const isMobile = useIsMobile();
 
   return (
     <section
@@ -79,61 +81,93 @@ export default function Hero() {
               variants={item}
               className="mt-10 flex flex-col sm:flex-row justify-center md:justify-start gap-3 sm:gap-4"
             >
-              <a
+              <motion.a
                 href="#projects"
-                className="w-full sm:w-auto px-6 py-3 bg-violet-600 hover:bg-violet-700 transition rounded-full text-white text-center"
+                animate={isMobile ? { y: [0, -4, 0] } : undefined}
+                transition={isMobile ? { repeat: Infinity, duration: 3, ease: "easeInOut" } : undefined}
+                className={`w-full sm:w-auto px-6 py-3 bg-violet-600 hover:bg-violet-700 transition rounded-full text-white text-center ${
+                  isMobile ? "shadow-[0_0_15px_rgba(124,58,237,0.5)]" : ""
+                }`}
               >
                 {t.hero.viewProjects}
-              </a>
-              <a
+              </motion.a>
+              <motion.a
                 href="#contact"
-                className="w-full sm:w-auto px-6 py-3 border border-zinc-600 rounded-full text-zinc-300 hover:text-white hover:border-white transition text-center"
+                animate={isMobile ? { y: [0, -4, 0] } : undefined}
+                transition={isMobile ? { repeat: Infinity, duration: 3, ease: "easeInOut", delay: 0.5 } : undefined}
+                className={`w-full sm:w-auto px-6 py-3 border border-zinc-600 rounded-full text-zinc-300 hover:text-white hover:border-white transition text-center ${
+                  isMobile ? "border-white/40 shadow-[0_0_15px_rgba(255,255,255,0.1)]" : ""
+                }`}
               >
                 {t.hero.contactMe}
-              </a>
+              </motion.a>
             </motion.div>
 
             <motion.div variants={item} className="mt-8 flex flex-col items-center md:items-start gap-4 pointer-events-auto">
               <div className="flex justify-center md:justify-start gap-4">
-                <a
+                <motion.a
                   href="https://github.com/xPaulo-o"
                   target="_blank"
                   rel="noreferrer"
                   aria-label="GitHub"
-                  className="flex h-14 w-14 items-center justify-center rounded-2xl border border-white/10 bg-zinc-900/60 text-white transition hover:border-white/60 hover:text-white hover:shadow-[0_0_18px_rgba(255,255,255,0.45)]"
+                  animate={isMobile ? { y: [0, -4, 0] } : undefined}
+                  transition={isMobile ? { repeat: Infinity, duration: 3, ease: "easeInOut" } : undefined}
+                  className={`flex h-14 w-14 items-center justify-center rounded-2xl border border-white/10 bg-zinc-900/60 text-white transition hover:border-white/60 hover:text-white hover:shadow-[0_0_18px_rgba(255,255,255,0.45)] ${
+                    isMobile
+                      ? "border-white/60 shadow-[0_0_15px_rgba(255,255,255,0.45)]"
+                      : ""
+                  }`}
                 >
                   <svg viewBox="0 0 24 24" className="h-7 w-7 fill-current">
                     <path d="M12 2c-5.52 0-10 4.59-10 10.26 0 4.54 2.87 8.38 6.84 9.74.5.1.68-.22.68-.49 0-.24-.01-.87-.01-1.71-2.78.62-3.37-1.38-3.37-1.38-.45-1.18-1.11-1.49-1.11-1.49-.9-.64.07-.62.07-.62 1 .07 1.52 1.06 1.52 1.06.89 1.58 2.34 1.12 2.91.85.09-.66.35-1.12.63-1.38-2.22-.26-4.56-1.15-4.56-5.1 0-1.13.39-2.05 1.03-2.78-.1-.27-.45-1.35.1-2.8 0 0 .84-.28 2.75 1.06.8-.23 1.65-.35 2.5-.35.85 0 1.71.12 2.5.35 1.9-1.34 2.75-1.06 2.75-1.06.55 1.45.2 2.53.1 2.8.64.73 1.03 1.65 1.03 2.78 0 3.96-2.34 4.84-4.57 5.1.36.33.68.98.68 1.97 0 1.42-.01 2.57-.01 2.92 0 .27.18.59.69.49A10.1 10.1 0 0 0 22 12.26C22 6.59 17.52 2 12 2z" />
                   </svg>
-                </a>
-                <a
+                </motion.a>
+                <motion.a
                   href="https://www.linkedin.com/in/paulo-augusto-b579513a1"
                   target="_blank"
                   rel="noreferrer"
                   aria-label="LinkedIn"
-                  className="flex h-14 w-14 items-center justify-center rounded-2xl border border-white/10 bg-zinc-900/60 text-white transition hover:border-[#0A66C2]/70 hover:text-[#0A66C2] hover:shadow-[0_0_18px_rgba(10,102,194,0.55)]"
+                  animate={isMobile ? { y: [0, -4, 0] } : undefined}
+                  transition={isMobile ? { repeat: Infinity, duration: 3, ease: "easeInOut", delay: 0.2 } : undefined}
+                  className={`flex h-14 w-14 items-center justify-center rounded-2xl border border-white/10 bg-zinc-900/60 text-white transition hover:border-[#0A66C2]/70 hover:text-[#0A66C2] hover:shadow-[0_0_18px_rgba(10,102,194,0.55)] ${
+                    isMobile
+                      ? "border-[#0A66C2]/70 shadow-[0_0_15px_rgba(10,102,194,0.55)]"
+                      : ""
+                  }`}
                 >
                   <svg viewBox="0 0 24 24" className="h-7 w-7 fill-current">
                     <path d="M4.98 3.5C3.33 3.5 2 4.85 2 6.48c0 1.62 1.32 2.97 2.95 2.97h.03c1.67 0 2.99-1.35 2.99-2.97C7.96 4.85 6.65 3.5 4.98 3.5zM2.4 21.5h5.15V9.9H2.4v11.6zM9.46 9.9v11.6h5.15v-6.48c0-3.59 4.59-3.88 4.59 0v6.48h5.15v-7.74c0-6.02-6.48-5.8-8.07-2.84V9.9H9.46z" />
                   </svg>
-                </a>
-                <a
+                </motion.a>
+                <motion.a
                   href="https://www.instagram.com/xpaulo_o2/"
                   target="_blank"
                   rel="noreferrer"
                   aria-label="Instagram"
-                  className="flex h-14 w-14 items-center justify-center rounded-2xl border border-white/10 bg-zinc-900/60 text-white transition hover:border-[#E4405F]/70 hover:text-[#E4405F] hover:shadow-[0_0_18px_rgba(228,64,95,0.5)]"
+                  animate={isMobile ? { y: [0, -4, 0] } : undefined}
+                  transition={isMobile ? { repeat: Infinity, duration: 3, ease: "easeInOut", delay: 0.4 } : undefined}
+                  className={`flex h-14 w-14 items-center justify-center rounded-2xl border border-white/10 bg-zinc-900/60 text-white transition hover:border-[#E4405F]/70 hover:text-[#E4405F] hover:shadow-[0_0_18px_rgba(228,64,95,0.5)] ${
+                    isMobile
+                      ? "border-[#E4405F]/70 shadow-[0_0_15px_rgba(228,64,95,0.5)]"
+                      : ""
+                  }`}
                 >
                   <svg viewBox="0 0 24 24" className="h-7 w-7 fill-current">
                     <path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2c1.65 0 3 1.35 3 3v10c0 1.65-1.35 3-3 3H7c-1.65 0-3-1.35-3-3V7c0-1.65 1.35-3 3-3h10zm-5 3.5A5.5 5.5 0 1 0 17.5 13 5.51 5.51 0 0 0 12 7.5zm0 2A3.5 3.5 0 1 1 8.5 13 3.5 3.5 0 0 1 12 9.5zm5.25-2.75a1 1 0 1 0 1 1 1 1 0 0 0-1-1z" />
                   </svg>
-                </a>
+                </motion.a>
               </div>
 
-              <button
+              <motion.button
                 type="button"
                 onClick={() => setCvOpen(true)}
-                className="mt-2 inline-flex items-center gap-3 rounded-2xl border border-white/10 bg-zinc-900/60 px-6 py-4 text-zinc-200 transition hover:border-violet-500/60 hover:text-white hover:shadow-[0_0_18px_rgba(167,139,250,0.5)] pointer-events-auto relative z-20 w-full sm:w-auto mx-auto md:mx-0"
+                animate={isMobile ? { y: [0, -4, 0] } : undefined}
+                transition={isMobile ? { repeat: Infinity, duration: 3, ease: "easeInOut", delay: 0.6 } : undefined}
+                className={`mt-2 inline-flex items-center gap-3 rounded-2xl border border-white/10 bg-zinc-900/60 px-6 py-4 text-zinc-200 transition hover:border-violet-500/60 hover:text-white hover:shadow-[0_0_18px_rgba(167,139,250,0.5)] pointer-events-auto relative z-20 w-full sm:w-auto mx-auto md:mx-0 ${
+                  isMobile
+                    ? "border-violet-500/60 shadow-[0_0_15px_rgba(167,139,250,0.5)]"
+                    : ""
+                }`}
               >
                 <svg
                   viewBox="0 0 24 24"
@@ -144,7 +178,7 @@ export default function Hero() {
                 <span className="pointer-events-none">
                   {t.hero.downloadResume}
                 </span>
-              </button>
+              </motion.button>
             </motion.div>
           </div>
         </div>
