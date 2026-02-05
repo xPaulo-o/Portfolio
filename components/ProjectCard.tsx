@@ -1,7 +1,8 @@
-﻿"use client";
+﻿﻿"use client";
 
 import { motion } from "framer-motion";
 import { useLanguage } from "@/components/language";
+import { useIsMobile } from "@/components/useIsMobile";
 
 type Props = {
   title: string;
@@ -23,6 +24,7 @@ export default function ProjectCard({
   ariaLabel,
 }: Props) {
   const { t } = useLanguage();
+  const isMobile = useIsMobile();
   const clickable = Boolean(href || onClick);
   const defaultAria = href ? t.projects.ariaRepo : t.projects.ariaDetails;
   const ariaText = defaultAria.replace("{title}", title);
@@ -37,21 +39,35 @@ export default function ProjectCard({
         if (event.key === "Enter" || event.key === " ") onClick();
       }}
       initial="rest"
-      whileInView={{ opacity: 1, y: 0 }}
+      whileInView={isMobile ? { opacity: 1 } : { opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
-      whileHover={{ scale: 1.03, y: -6 }}
-      whileTap={{ scale: 0.97 }}
-      animate="rest"
+      whileHover={isMobile ? undefined : { scale: 1.03, y: -6 }}
+      whileTap={{ scale: 0.96 }}
+      animate={isMobile ? { y: [0, -6, 0] } : "rest"}
       variants={{
         rest: { scale: 1, opacity: 0, y: 18 },
         hover: { scale: 1.03 },
       }}
-      transition={{ type: "spring", stiffness: 300, damping: 20 }}
+      transition={
+        isMobile
+          ? {
+              y: {
+                repeat: Infinity,
+                duration: 3,
+                ease: "easeInOut",
+              },
+            }
+          : { type: "spring", stiffness: 300, damping: 20 }
+      }
       className={`group card-ambient relative rounded-2xl 
         bg-zinc-900/60 border border-white/10 
         overflow-hidden transition hover:border-violet-500/50 hover:shadow-[0_24px_60px_rgba(124,58,237,0.18)] focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-500/70 ${
           clickable ? "cursor-pointer" : ""
-        }`}
+        } ${
+        isMobile
+          ? "border-violet-500/30 shadow-[0_0_15px_rgba(124,58,237,0.15)]"
+          : ""
+      }`}
       aria-label={ariaLabel ?? ariaText}
     >
       {/* Glow */}

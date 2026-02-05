@@ -32,7 +32,7 @@ export default function LanguageFloatingButton() {
   }, []);
 
   return (
-    <div className="fixed bottom-6 right-6 z-40 flex flex-col items-end gap-2">
+    <div className="fixed bottom-6 right-6 z-40 hidden lg:flex flex-col items-end gap-2">
       <AnimatePresence>
         {open && (
           <motion.div

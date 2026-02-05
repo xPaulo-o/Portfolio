@@ -3,6 +3,8 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { useLanguage } from "@/components/language";
+import { useIsMobile } from "@/components/useIsMobile";
+import MobileLanguageSelector from "@/components/MobileLanguageSelector";
 
 export default function Navbar() {
   const { language, t } = useLanguage();
@@ -65,18 +67,8 @@ export default function Navbar() {
     { name: t.nav.contact, href: "#contact" },
   ];
 
-  const [isMobile, setIsMobile] = useState(false);
+  const isMobile = useIsMobile();
   const [menuOpen, setMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const checkIsMobile = () => {
-      // Aumentado para 1024px (lg) para evitar cortes em telas médias/tablets
-      setIsMobile(window.innerWidth < 1024);
-    };
-    checkIsMobile();
-    window.addEventListener("resize", checkIsMobile);
-    return () => window.removeEventListener("resize", checkIsMobile);
-  }, []);
 
   if (isMobile) {
     return (
@@ -143,6 +135,13 @@ export default function Navbar() {
                     </a>
                   </motion.li>
                 ))}
+                <motion.li
+                  initial={{ opacity: 0, y: -15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: navItems.length * 0.05, ease: "easeOut" }}
+                >
+                  <MobileLanguageSelector />
+                </motion.li>
               </ul>
             </motion.div>
           )}
