@@ -43,7 +43,7 @@ export default function ProjectCard({
       viewport={{ once: true, amount: 0.3 }}
       whileHover={isMobile ? undefined : { scale: 1.03, y: -6 }}
       whileTap={{ scale: 0.96 }}
-      animate={isMobile ? { y: [0, -6, 0] } : "rest"}
+      animate={isMobile ? { y: [0, -6, 0] } : undefined}
       variants={{
         rest: { scale: 1, opacity: 0, y: 18 },
         hover: { scale: 1.03 },
