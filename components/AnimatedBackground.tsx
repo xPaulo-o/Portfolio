@@ -8,6 +8,7 @@ import {
   useTransform,
 } from "framer-motion";
 import { useEffect, useState } from "react";
+import { useLanguage } from "@/components/language";
 
 function Duck() {
   const [active, setActive] = useState(false);
@@ -71,6 +72,7 @@ function Duck() {
 }
 
 export default function AnimatedBackground() {
+  const { language } = useLanguage();
   const shouldReduceMotion = useReducedMotion();
   const { scrollYProgress } = useScroll();
   const reducedProgress = useMotionValue(0);
@@ -94,7 +96,7 @@ export default function AnimatedBackground() {
   const orbThreeScale = useTransform(progress, [0, 1], [1, 1.1]);
 
   return (
-    <div className="animated-backdrop" aria-hidden="true">
+    <div className="animated-backdrop bg-[#050505]" aria-hidden="true">
       <motion.div
         className="animated-backdrop__gradient"
         style={{ x: gradientX, y: gradientY }}
@@ -115,6 +117,35 @@ export default function AnimatedBackground() {
         className="animated-backdrop__orb animated-backdrop__orb--three"
         style={{ x: orbThreeX, y: orbThreeY, scale: orbThreeScale }}
       />
+
+      {/* Ambient Lights based on Language - Movido para o final para ficar visível */}
+      <motion.div
+        className="absolute inset-0 z-0 pointer-events-none mix-blend-screen"
+        initial={false}
+        animate={{ opacity: language === "pt" ? 1 : 0 }}
+        transition={{ duration: 1.5, ease: "easeInOut" }}
+      >
+        <div className="absolute top-[10%] left-[5%] h-[60vh] w-[60vh] rounded-full bg-violet-600/40 blur-[120px]" />
+      </motion.div>
+
+      <motion.div
+        className="absolute inset-0 z-0 pointer-events-none mix-blend-screen"
+        initial={false}
+        animate={{ opacity: language === "en" ? 1 : 0 }}
+        transition={{ duration: 1.5, ease: "easeInOut" }}
+      >
+        <div className="absolute top-[20%] right-[5%] h-[60vh] w-[60vh] rounded-full bg-blue-600/40 blur-[120px]" />
+      </motion.div>
+
+      <motion.div
+        className="absolute inset-0 z-0 pointer-events-none mix-blend-screen"
+        initial={false}
+        animate={{ opacity: language === "es" ? 1 : 0 }}
+        transition={{ duration: 1.5, ease: "easeInOut" }}
+      >
+        <div className="absolute bottom-[5%] left-[15%] h-[65vh] w-[65vh] rounded-full bg-fuchsia-600/40 blur-[120px]" />
+      </motion.div>
+
       <Duck />
     </div>
   );
