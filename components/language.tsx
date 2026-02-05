@@ -135,7 +135,7 @@ const translations: Record<Language, Translation> = {
       resume: {
         pt: "Portugues (BR)",
         en: "English (EN)",
-        es: "Espanol (ES)",
+        es: "Espanhol (ES)",
       },
       close: "Fechar",
     },
@@ -155,7 +155,7 @@ const translations: Record<Language, Translation> = {
         },
         {
           title: "Sistema Dipcell",
-          tech: "Java - Banco de Dados",
+          tech: "Python - Banco de Dados",
           description:
             "Sistema de OS para controle de ordens de servico e fluxo de atendimento.",
           tags: ["CRUD", "App desktop", "SQL"],
@@ -174,7 +174,7 @@ const translations: Record<Language, Translation> = {
           cert: "Cert: Nativo",
         },
         {
-          name: "Espanol",
+          name: "Espanhol",
           level: "Fluente",
           percent: 100,
           accent: "bg-violet-400",
@@ -316,7 +316,7 @@ const translations: Record<Language, Translation> = {
         },
         {
           title: "Sistema Dipcell",
-          tech: "Java - Database",
+          tech: "Python - Database",
           description:
             "Service order system to manage tickets and streamline the service flow.",
           tags: ["CRUD", "Desktop app", "SQL"],
@@ -457,7 +457,7 @@ const translations: Record<Language, Translation> = {
       resume: {
         pt: "Portugues (BR)",
         en: "English (EN)",
-        es: "Espanol (ES)",
+        es: "Español (ES)",
       },
       close: "Cerrar",
     },
@@ -477,7 +477,7 @@ const translations: Record<Language, Translation> = {
         },
         {
           title: "Sistema Dipcell",
-          tech: "Java - Base de datos",
+          tech: "Python - Base de datos",
           description:
             "Sistema de ordenes de servicio para controlar el flujo de atencion.",
           tags: ["CRUD", "App de escritorio", "SQL"],
@@ -496,7 +496,7 @@ const translations: Record<Language, Translation> = {
           cert: "Cert: Nativo",
         },
         {
-          name: "Espanol",
+          name: "Español",
           level: "Fluido",
           percent: 100,
           accent: "bg-violet-400",

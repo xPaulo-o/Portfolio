@@ -12,7 +12,7 @@ const certificates = [
     url: "https://www.hackerrank.com/certificates/792e7ebd319c",
   },
   {
-    title: "Python Básico",
+    title: "Introdução ao Hacking e pentest 2.0",
     issuer: "Solyd Offensive Security",
     url: "/Certificados/certificado.pdf",
   },
