@@ -118,22 +118,22 @@ const translations: Record<Language, Translation> = {
       about: "Sobre",
       projects: "Projetos",
       skills: "Habilidades",
-      experience: "Experiencias",
-      education: "Educacao",
+      experience: "Experiências",
+      education: "Educação",
       certificates: "Certificados",
       contact: "Contato",
     },
     hero: {
       role: "Desenvolvedor Full Stack",
       description:
-        "Eu crio experiencias web interativas, unindo codigo limpo, performance e motion bem pensado.",
+        "Eu crio experiências web interativas, unindo código limpo, performance e motion bem pensado.",
       viewProjects: "Ver Projetos",
       contactMe: "Fale Comigo",
-      downloadResume: "Baixar Curriculo",
+      downloadResume: "Baixar Currículo",
       modalTitle: "Escolha o idioma",
-      modalDescription: "Selecione o curriculo para baixar.",
+      modalDescription: "Selecione o currículo para baixar.",
       resume: {
-        pt: "Portugues (BR)",
+        pt: "Português (BR)",
         en: "English (EN)",
         es: "Espanhol (ES)",
       },
@@ -142,22 +142,22 @@ const translations: Record<Language, Translation> = {
     projects: {
       title: "Projetos em Destaque",
       repoLabel: "Ver repo",
-      ariaRepo: "Abrir repositorio de {title}",
+      ariaRepo: "Abrir repositório de {title}",
       ariaDetails: "Abrir detalhes de {title}",
       items: [
         {
           title: "Typing Hero",
           tech: "Python - Pygame",
           description:
-            "Um jogo de digitacao ritmica inspirado em Guitar Hero, com palavras caindo no BPM da musica.",
-          tags: ["Loop de jogo", "Sincronia de audio", "UI/UX"],
+            "Um jogo de digitação rítmica inspirado em Guitar Hero, com palavras caindo no BPM da música.",
+          tags: ["Loop de jogo", "Sincronia de áudio", "UI/UX"],
           url: "https://github.com/xPaulo-o/typing_hero",
         },
         {
           title: "Sistema Dipcell",
           tech: "Python - Banco de Dados",
           description:
-            "Sistema de OS para controle de ordens de servico e fluxo de atendimento.",
+            "Sistema de OS para controle de ordens de serviço e fluxo de atendimento.",
           tags: ["CRUD", "App desktop", "SQL"],
           url: "https://github.com/xPaulo-o/Sistema_Dipcell",
         },
@@ -167,7 +167,7 @@ const translations: Record<Language, Translation> = {
       title: "Habilidades",
       languages: [
         {
-          name: "Portugues",
+          name: "Português",
           level: "Fluente",
           percent: 100,
           accent: "bg-violet-400",
@@ -182,70 +182,70 @@ const translations: Record<Language, Translation> = {
         },
         {
           name: "English",
-          level: "Intermediario",
+          level: "Intermediário",
           percent: 65,
           accent: "bg-violet-400",
-          cert: "Cert: Intermediario (estudos)",
+          cert: "Cert: Intermediário (estudos)",
         },
       ],
     },
     experience: {
-      title: "Experiencias",
+      title: "Experiências",
       linkLabel: "Ver empresa ->",
       items: [
         {
           company: "Gelnex LTDA",
           role: "Assistente Administrativo",
           summary:
-            "Rotinas administrativas, organizacao de documentos e apoio operacional.",
+            "Rotinas administrativas, organização de documentos e apoio operacional.",
           period: "2022 - 2023",
-          location: "Nazario, GO",
-          tags: ["Processos", "Organizacao", "Suporte"],
+          location: "Nazário, GO",
+          tags: ["Processos", "Organização", "Suporte"],
           url: "https://www.darlingii.com/pt-BR/rousselot/brands/our-gelatins",
         },
         {
-          company: "Infortel Solucoes em Informatica",
+          company: "Infortel Soluções em Informática",
           role: "Operador de rede de teleprocessamento",
           summary:
-            "Atuacao com redes, monitoramento, suporte tecnico e manutencao de celulares.",
+            "Atuação com redes, monitoramento, suporte técnico e manutenção de celulares.",
           period: "2024 - 2024",
-          location: "Nazario, GO",
+          location: "Nazário, GO",
           tags: ["Redes", "Monitoramento", "Suporte"],
           url: "https://www.instagram.com/infortel.informatica/",
         },
         {
           company: "Dipcell",
-          role: "Assistente Tecnico e Vendedor",
+          role: "Assistente Técnico e Vendedor",
           summary:
-            "Atendimento ao cliente e suporte tecnico em informatica e celulares.",
+            "Atendimento ao cliente e suporte técnico em informática e celulares.",
           period: "2025 - Atualmente",
-          location: "Nazario, GO",
+          location: "Nazário, GO",
           tags: ["Atendimento", "Hardware", "Vendas"],
           url: "https://www.instagram.com/dip_cell_nzr_/",
         },
       ],
     },
     education: {
-      title: "Educacao",
-      linkLabel: "Ver instituicao ->",
+      title: "Educação",
+      linkLabel: "Ver instituição ->",
       items: [
         {
           institution: "Aphonsiano",
-          course: "Graduacao em Tecnologia da Informacao",
+          course: "Graduação em Tecnologia da Informação",
           summary:
-            "Gerenciamento de redes, desenvolvimento web e seguranca da informacao.",
+            "Gerenciamento de redes, desenvolvimento web e segurança da informação.",
           period: "2023 - 2026",
-          location: "Trindade, Go",
-          tags: ["Redes", "Web", "Seguranca"],
+          location: "Trindade, GO",
+          tags: ["Redes", "Web", "Segurança"],
           url: "https://aphonsiano.edu.br",
         },
         {
           institution: "Vision Cursos",
-          course: "Curso tecnico em reparo de celulares",
-          summary: "Reparo de placas e manutencao de celular.",
+          course: "Curso técnico em reparo de celulares",
+          summary: "Reparo de placas e manutenção de celular.",
           period: "2024 - 2024",
-          location: "Goiania, Go",
-          tags: ["Micro-solda", "Hardware", "Diagnostico"],
+          location: "Goiânia, GO",
+          tags: ["Micro-solda", "Hardware", "Diagnóstico"],
           url: "https://instituicao.com",
         },
       ],
@@ -257,10 +257,10 @@ const translations: Record<Language, Translation> = {
     contact: {
       title: "Vamos Trabalhar Juntos",
       description:
-        "Tem um projeto em mente? Estou aberto a colaboracoes e oportunidades freelance.",
-      button: "Diga Ola",
+        "Tem um projeto em mente? Estou aberto a colaborações e oportunidades freelance.",
+      button: "Diga Olá",
       modalTitle: "Contato",
-      modalDescription: "Escolha como voce quer falar comigo.",
+      modalDescription: "Escolha como você quer falar comigo.",
       email: "Email",
       whatsapp: "WhatsApp",
       close: "Fechar",
@@ -360,17 +360,17 @@ const translations: Record<Language, Translation> = {
           summary:
             "Administrative routines, document organization, and operational support.",
           period: "2022 - 2023",
-          location: "Nazario, GO",
+          location: "Nazário, GO",
           tags: ["Processes", "Organization", "Support"],
           url: "https://www.darlingii.com/pt-BR/rousselot/brands/our-gelatins",
         },
         {
-          company: "Infortel Solucoes em Informatica",
+          company: "Infortel Soluções em Informática",
           role: "Network Operations Operator",
           summary:
             "Worked with networks, monitoring, technical support, and phone maintenance.",
           period: "2024 - 2024",
-          location: "Nazario, GO",
+          location: "Nazário, GO",
           tags: ["Networks", "Monitoring", "Support"],
           url: "https://www.instagram.com/infortel.informatica/",
         },
@@ -380,7 +380,7 @@ const translations: Record<Language, Translation> = {
           summary:
             "Customer service and technical support for computers and phones.",
           period: "2025 - Present",
-          location: "Nazario, GO",
+          location: "Nazário, GO",
           tags: ["Customer service", "Hardware", "Sales"],
           url: "https://www.instagram.com/dip_cell_nzr_/",
         },
@@ -405,7 +405,7 @@ const translations: Record<Language, Translation> = {
           course: "Technical course in phone repair",
           summary: "Board repair and phone maintenance.",
           period: "2024 - 2024",
-          location: "Goiania, GO",
+          location: "Goiânia, GO",
           tags: ["Microsoldering", "Hardware", "Diagnostics"],
           url: "https://instituicao.com",
         },
@@ -416,7 +416,7 @@ const translations: Record<Language, Translation> = {
       description: "Tap to see the full list of certificates.",
     },
     contact: {
-      title: "Lets Work Together",
+      title: "Let's Work Together",
       description:
         "Have a project in mind? I am open to collaborations and freelance opportunities.",
       button: "Say Hello",
@@ -437,25 +437,25 @@ const translations: Record<Language, Translation> = {
       change: "Cambiar idioma",
     },
     nav: {
-      about: "Sobre mi",
+      about: "Sobre mí",
       projects: "Proyectos",
       skills: "Habilidades",
       experience: "Experiencia",
-      education: "Educacion",
+      education: "Educación",
       certificates: "Certificados",
       contact: "Contacto",
     },
     hero: {
       role: "Desarrollador Full Stack",
       description:
-        "Creo experiencias web interactivas, combinando codigo limpio, rendimiento y motion bien pensado.",
+        "Creo experiencias web interactivas, combinando código limpio, rendimiento y motion bien pensado.",
       viewProjects: "Ver Proyectos",
-      contactMe: "Contactame",
-      downloadResume: "Descargar Curriculum",
+      contactMe: "Contáctame",
+      downloadResume: "Descargar Currículum",
       modalTitle: "Elige el idioma",
-      modalDescription: "Selecciona el curriculum para descargar.",
+      modalDescription: "Selecciona el currículum para descargar.",
       resume: {
-        pt: "Portugues (BR)",
+        pt: "Portugués (BR)",
         en: "English (EN)",
         es: "Español (ES)",
       },
@@ -471,15 +471,15 @@ const translations: Record<Language, Translation> = {
           title: "Typing Hero",
           tech: "Python - Pygame",
           description:
-            "Un juego ritmico de mecanografia inspirado en Guitar Hero, con palabras cayendo al BPM de la musica.",
-          tags: ["Bucle de juego", "Sincronia de audio", "UI/UX"],
+            "Un juego rítmico de mecanografía inspirado en Guitar Hero, con palabras cayendo al BPM de la música.",
+          tags: ["Bucle de juego", "Sincronía de audio", "UI/UX"],
           url: "https://github.com/xPaulo-o/typing_hero",
         },
         {
           title: "Sistema Dipcell",
           tech: "Python - Base de datos",
           description:
-            "Sistema de ordenes de servicio para controlar el flujo de atencion.",
+            "Sistema de órdenes de servicio para controlar el flujo de atención.",
           tags: ["CRUD", "App de escritorio", "SQL"],
           url: "https://github.com/xPaulo-o/Sistema_Dipcell",
         },
@@ -489,7 +489,7 @@ const translations: Record<Language, Translation> = {
       title: "Habilidades",
       languages: [
         {
-          name: "Portugues",
+          name: "Portugués",
           level: "Fluido",
           percent: 100,
           accent: "bg-violet-400",
@@ -503,7 +503,7 @@ const translations: Record<Language, Translation> = {
           cert: "Cert: Nativo",
         },
         {
-          name: "Ingles",
+          name: "Inglés",
           level: "Intermedio",
           percent: 65,
           accent: "bg-violet-400",
@@ -519,43 +519,43 @@ const translations: Record<Language, Translation> = {
           company: "Gelnex LTDA",
           role: "Asistente Administrativo",
           summary:
-            "Rutinas administrativas, organizacion de documentos y apoyo operativo.",
+            "Rutinas administrativas, organización de documentos y apoyo operativo.",
           period: "2022 - 2023",
-          location: "Nazario, GO",
-          tags: ["Procesos", "Organizacion", "Soporte"],
+          location: "Nazário, GO",
+          tags: ["Procesos", "Organización", "Soporte"],
           url: "https://www.darlingii.com/pt-BR/rousselot/brands/our-gelatins",
         },
         {
-          company: "Infortel Solucoes em Informatica",
+          company: "Infortel Soluções em Informática",
           role: "Operador de red de teleprocesamiento",
           summary:
-            "Trabajo con redes, monitoreo, soporte tecnico y mantenimiento de celulares.",
+            "Trabajo con redes, monitoreo, soporte técnico y mantenimiento de celulares.",
           period: "2024 - 2024",
-          location: "Nazario, GO",
+          location: "Nazário, GO",
           tags: ["Redes", "Monitoreo", "Soporte"],
           url: "https://www.instagram.com/infortel.informatica/",
         },
         {
           company: "Dipcell",
-          role: "Asistente Tecnico y Ventas",
+          role: "Asistente Técnico y Ventas",
           summary:
-            "Atencion al cliente y soporte tecnico en informatica y celulares.",
+            "Atención al cliente y soporte técnico en informática y celulares.",
           period: "2025 - Presente",
-          location: "Nazario, GO",
-          tags: ["Atencion", "Hardware", "Ventas"],
+          location: "Nazário, GO",
+          tags: ["Atención", "Hardware", "Ventas"],
           url: "https://www.instagram.com/dip_cell_nzr_/",
         },
       ],
     },
     education: {
-      title: "Educacion",
-      linkLabel: "Ver institucion ->",
+      title: "Educación",
+      linkLabel: "Ver institución ->",
       items: [
         {
           institution: "Aphonsiano",
-          course: "Grado en Tecnologia de la Informacion",
+          course: "Grado en Tecnología de la Información",
           summary:
-            "Gestion de redes, desarrollo web y seguridad de la informacion.",
+            "Gestión de redes, desarrollo web y seguridad de la información.",
           period: "2023 - 2026",
           location: "Trindade, GO",
           tags: ["Redes", "Web", "Seguridad"],
@@ -563,11 +563,11 @@ const translations: Record<Language, Translation> = {
         },
         {
           institution: "Vision Cursos",
-          course: "Curso tecnico en reparacion de celulares",
-          summary: "Reparacion de placas y mantenimiento de celulares.",
+          course: "Curso técnico en reparación de celulares",
+          summary: "Reparación de placas y mantenimiento de celulares.",
           period: "2024 - 2024",
-          location: "Goiania, GO",
-          tags: ["Micro-soldadura", "Hardware", "Diagnostico"],
+          location: "Goiânia, GO",
+          tags: ["Micro-soldadura", "Hardware", "Diagnóstico"],
           url: "https://instituicao.com",
         },
       ],
@@ -579,10 +579,10 @@ const translations: Record<Language, Translation> = {
     contact: {
       title: "Trabajemos Juntos",
       description:
-        "Tienes un proyecto en mente? Estoy abierto a colaboraciones y oportunidades freelance.",
+        "¿Tienes un proyecto en mente? Estoy abierto a colaboraciones y oportunidades freelance.",
       button: "Di Hola",
       modalTitle: "Contacto",
-      modalDescription: "Elige como quieres hablar conmigo.",
+      modalDescription: "Elige cómo quieres hablar conmigo.",
       email: "Email",
       whatsapp: "WhatsApp",
       close: "Cerrar",
@@ -595,9 +595,9 @@ const translations: Record<Language, Translation> = {
 };
 
 const languageLabels: Array<{ id: Language; label: string; short: string }> = [
-  { id: "pt", label: "Portugues", short: "PT" },
+  { id: "pt", label: "Português", short: "PT" },
   { id: "en", label: "English", short: "EN" },
-  { id: "es", label: "Espanol", short: "ES" },
+  { id: "es", label: "Español", short: "ES" },
 ];
 
 type LanguageContextValue = {
