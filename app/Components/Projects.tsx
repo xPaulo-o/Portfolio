@@ -12,14 +12,14 @@ const projects = [
     title: "Tetris CSharp",
     category: "Game Development",
     image:
-      "/projects/Tetris.png",
+      "/Projects/Tetris.png",
     repository: "https://github.com/xPaulo-o/Tetris-CSharp",
   },
   {
     title: "Typing Hero",
     category: "Game Development",
     image:
-      "/projects/Typinghero.png",
+      "/Projects/Typinghero.png",
     repository: "https://github.com/xPaulo-o/typing_hero",
   },
   {

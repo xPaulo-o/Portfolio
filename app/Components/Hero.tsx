@@ -118,7 +118,7 @@ export default function CyberHero() {
           {/* DOWNLOAD BUTTON */}
           <div className="absolute bottom-4 left-1/2 z-40 w-[calc(100%-2rem)] max-w-[360px] -translate-x-1/2 md:bottom-[3%] md:left-[51%] md:w-auto md:max-w-none">
             <a
-              href="/Curriculum/curriculum.pdf"
+              href="/Curriculum/Curriculum.pdf"
               download="Paulo_Augusto_CV.pdf"
               className="group relative flex h-[58px] w-full items-center overflow-hidden rounded-full border border-orange-500/70 bg-black/45 backdrop-blur-md transition-all duration-300 hover:scale-[1.02] md:h-[72px] md:w-[360px] md:bg-black/40"
             >
