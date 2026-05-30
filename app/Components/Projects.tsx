@@ -12,13 +12,15 @@ const projects = [
     image:
       "/Projects/Tetris.png",
     repository: "https://github.com/xPaulo-o/Tetris-CSharp",
+    linkLabel: "View Repo",
   },
   {
     title: "Typing Hero",
     category: "Game Development",
     image:
       "/Projects/Typinghero.png",
-    repository: "https://github.com/xPaulo-o/typing_hero",
+    repository: "https://site-typing-hero.vercel.app/",
+    linkLabel: "View Site",
   },
   {
     title: "Comming Soon",
@@ -26,6 +28,7 @@ const projects = [
     image:
       "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop",
     repository: "",
+    linkLabel: "View Repo",
   },
 ];
 
@@ -129,7 +132,7 @@ export default function ProjectsSection() {
                       className="text-orange-400"
                     />
                     <span className="text-[10px] uppercase tracking-[0.3em] text-zinc-300">
-                      View Repo
+                      {project.linkLabel || "View Repo"}
                     </span>
                   </a>
 
