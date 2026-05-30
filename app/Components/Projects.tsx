@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 import {
   ArrowUpRight,
@@ -172,20 +170,6 @@ export default function ProjectsSection() {
           />
         ))}
       </div>
-
-      {/* HEXAGON STYLE */}
-      <style jsx>{`
-        .clip-hexagon {
-          clip-path: polygon(
-            25% 5%,
-            75% 5%,
-            100% 50%,
-            75% 95%,
-            25% 95%,
-            0% 50%
-          );
-        }
-      `}</style>
     </section>
   );
 }

@@ -1,8 +1,7 @@
-"use client";
-
 import Image from "next/image";
 import { FaGithub, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import { BsDownload } from "react-icons/bs";
+import heroImage from "../../public/images/foto1.webp";
 
 export default function CyberHero() {
   const socials = [
@@ -106,11 +105,11 @@ export default function CyberHero() {
           {/* CENTER IMAGE */}
           <div className="absolute bottom-[52px] left-[58%] z-10 flex h-[53svh] w-[74vw] max-w-[290px] -translate-x-1/2 items-end justify-center overflow-hidden md:bottom-[-30px] md:left-[46%] md:h-[96vh] md:w-[600px] md:max-w-none">
             <Image
-              src="/images/foto1.png"
+              src={heroImage}
               alt="Character"
               fill
               sizes="(min-width: 768px) 600px, 74vw"
-              priority
+              preload
               className="h-full w-full object-contain object-bottom [mask-image:linear-gradient(to_bottom,black_50%,transparent_98%)] [-webkit-mask-image:linear-gradient(to_bottom,black_50%,transparent_98%)]"
             />
           </div>

@@ -1,8 +1,7 @@
 import Hero from './Components/Hero';
 import Project from './Components/Projects';
-import Footer from './Components/Footer';
-import Certificate from './Components/certificates';
 import Navbar from './Components/Navbar';
+import LazySections from './Components/LazySections';
 
 export default function Home() {
   return (
@@ -15,13 +14,8 @@ export default function Home() {
         <div id="projects">
           <Project />
         </div>
-        <div id="certificates">
-          <Certificate />
-        </div>
+        <LazySections />
       </main>
-      <div id="contact">
-        <Footer />
-      </div>
     </div>
   );
 }
