@@ -15,7 +15,12 @@ html {
 
 .animate-smooth-jump {
   display: inline-block;
-  animation: smooth-jump 3s ease-in-out infinite;
+}
+
+@media (min-width: 768px) {
+  .animate-smooth-jump {
+    animation: smooth-jump 3s ease-in-out infinite;
+  }
 }
 
 .certificates-scroll {

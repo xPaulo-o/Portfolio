@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { FaGithub, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import { BsDownload } from "react-icons/bs";
-import heroImage from "../../public/images/foto1.webp";
 
 export default function CyberHero() {
   const socials = [
@@ -25,7 +24,7 @@ export default function CyberHero() {
   return (
     <section className="relative h-[100svh] w-full overflow-hidden bg-black text-white md:h-screen">
       <div className="relative flex h-full items-center justify-center p-3 md:p-6">
-        <div className="relative h-full w-full overflow-hidden rounded-[24px] border border-white/10 bg-black/70 backdrop-blur-sm md:rounded-[32px]">
+        <div className="relative h-full w-full overflow-hidden rounded-[24px] border border-white/10 bg-black/70 md:rounded-[32px] md:backdrop-blur-sm">
           {/* SOCIAL BUTTONS */}
           <div className="absolute left-4 top-4 z-50 flex items-center gap-2 md:left-auto md:right-6 md:top-6 md:gap-3">
             {socials.map((social) => {
@@ -38,7 +37,7 @@ export default function CyberHero() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.name}
-                  className="group flex h-9 w-9 items-center justify-center rounded-full border border-orange-500/35 bg-black/40 text-orange-400 backdrop-blur-md transition-all duration-300 hover:scale-110 hover:border-orange-500/80 hover:bg-orange-500/10 md:h-11 md:w-11"
+                  className="group flex h-9 w-9 items-center justify-center rounded-full border border-orange-500/35 bg-black/55 text-orange-400 transition-all duration-300 hover:scale-110 hover:border-orange-500/80 hover:bg-orange-500/10 md:h-11 md:w-11 md:bg-black/40 md:backdrop-blur-md"
                 >
                   <Icon
                     size={17}
@@ -105,11 +104,12 @@ export default function CyberHero() {
           {/* CENTER IMAGE */}
           <div className="absolute bottom-[52px] left-[58%] z-10 flex h-[53svh] w-[74vw] max-w-[290px] -translate-x-1/2 items-end justify-center overflow-hidden md:bottom-[-30px] md:left-[46%] md:h-[96vh] md:w-[600px] md:max-w-none">
             <Image
-              src={heroImage}
+              src="/images/foto1.avif"
               alt="Character"
               fill
               sizes="(min-width: 768px) 600px, 74vw"
               preload
+              unoptimized
               className="h-full w-full object-contain object-bottom [mask-image:linear-gradient(to_bottom,black_50%,transparent_98%)] [-webkit-mask-image:linear-gradient(to_bottom,black_50%,transparent_98%)]"
             />
           </div>
@@ -119,7 +119,7 @@ export default function CyberHero() {
             <a
               href="/Curriculum/Curriculum.pdf"
               download="Paulo_Augusto_CV.pdf"
-              className="group relative flex h-[58px] w-full items-center overflow-hidden rounded-full border border-orange-500/70 bg-black/45 backdrop-blur-md transition-all duration-300 hover:scale-[1.02] md:h-[72px] md:w-[360px] md:bg-black/40"
+              className="group relative flex h-[58px] w-full items-center overflow-hidden rounded-full border border-orange-500/70 bg-black/60 transition-all duration-300 hover:scale-[1.02] md:h-[72px] md:w-[360px] md:bg-black/40 md:backdrop-blur-md"
             >
               <div className="flex flex-1 items-center justify-center">
                 <span className="text-[11px] font-semibold uppercase tracking-[0.35em] text-orange-400 md:text-[13px] md:tracking-[0.45em]">
